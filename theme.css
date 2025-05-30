@@ -2089,68 +2089,6 @@
 
 
 
-/* Previous styles unchanged, only adding/replacing the necessary parts for fast-forward and rewind buttons */
-
-/* Override hidden fast-forward and rewind buttons in media player */
-.btnFastForward, .btnRewind {
-    display: inline-flex !important;
-    background-color: rgba(var(--accent), 0.8);
-    color: rgba(var(--darkest), 1);
-    border-radius: var(--rounding);
-    padding: 0.6em;
-    margin: 0.5em;
-    backdrop-filter: blur(5px);
-    transition: background-color 0.2s ease, transform 0.2s;
-    font-size: 125%; /* Match other OSD button sizes */
-}
-
-/* Hover effects for fast-forward and rewind buttons */
-.btnFastForward:hover, .btnRewind:hover {
-    background-color: rgba(var(--accent), 1);
-    transform: scale(1.1);
-    color: rgba(var(--dark)) !important;
-}
-
-/* Ensure buttons are visible and styled in desktop layout */
-.layout-desktop .btnFastForward, .layout-desktop .btnRewind {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Mobile layout adjustments */
-.layout-mobile .btnFastForward, .layout-mobile .btnRewind {
-    display: inline-block !important;
-    padding: 0.5em !important;
-    margin: 0.25em !important;
-    font-size: 120%; /* Slightly smaller for mobile */
-}
-
-/* TV layout adjustments */
-.layout-tv .btnFastForward, .layout-tv .btnRewind {
-    display: inline !important;
-    padding: 0.75em !important;
-    border-radius: 36px !important; /* Match TV layout rounding */
-    font-size: 190%; /* Match TV layout font size */
-    background-color: rgba(var(--accent), 0.75);
-    box-shadow: 2px 3px 16px rgba(var(--dark), 0.55);
-}
-
-/* Position buttons within the video OSD buttons container */
-.videoOsdBottom .buttons .btnFastForward, .videoOsdBottom .buttons .btnRewind {
-    order: 1; /* Ensure they appear in the button flow */
-}
-
-/* Icon styling for clarity */
-.btnFastForward .material-icons, .btnRewind .material-icons {
-    color: rgba(var(--darkest));
-}
-
-/* Ensure buttons are interactive and visible in the OSD */
-.player .btnFastForward, .player .btnRewind {
-    pointer-events: auto !important;
-    opacity: 1 !important;
-}
 
 
 
