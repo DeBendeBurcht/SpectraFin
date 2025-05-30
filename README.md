@@ -1,26 +1,6 @@
 # SpectraFin
 
 A Modified Theme based Zesty Theme By stpnwf[ZestyTheme](https://github.com/stpnwf/ZestyTheme), Which is a minimal and elegant theme for Jellyfin based on/inspired by [Ultrachromic](https://github.com/CTalvio/Ultrachromic), [Glassmorphism](https://github.com/alexyle/jellyfin-theme), [Scyfin](https://github.com/loof2736/scyfin), [JellyTheme](https://github.com/alexyle/jellyfin-theme) & [Zombie](https://github.com/MakD/zombie-release/tree/main).
- 
-**Now with two login wallpaper options: minimal and stylish!**<br>
-Compatible with 10.9.10+ & Tablets!
-
----
-
-### **Screenshots:**
-
-<img src="./images/home.jpg" alt="home" width="100%"/>
-<img src="./images/nice-guys.jpg" alt="movies" width="100%"/>
-<img src="./images/avatar.jpg" alt="tv-shows" width="100%"/>
-<img src="./images/player.jpg" alt="player" width="100%"/>
-
-Two login wallpaper options: Minimal and Stylish.
-
-<img src="./images/login.jpg" alt="login" width="100%"/>
-
-**Mobile:**
-
-<img src="./images/phone.jpg" alt="phone" width="100%"/>
 
 ---
 
@@ -32,6 +12,25 @@ To add the theme to Jellyfin, copy the following line to Dashboard > General > C
 @import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/theme.css');
 ```
 Then, if you haven't already, enable Backdrops for _every_ device using this theme (Settings > Display > Backdrops).¹ 
+
+---
+
+### **Old Screenshots:**
+
+<img src="./images/home.jpg" alt="home" width="100%"/>
+<img src="./images/nice-guys.jpg" alt="movies" width="100%"/>
+<img src="./images/avatar.jpg" alt="tv-shows" width="100%"/>
+<img src="./images/player.jpg" alt="player" width="100%"/>
+
+Two login wallpaper options: Minimal and Stylish.
+
+<img src="./images/login.jpg" alt="login" width="100%"/>
+
+**Old Mobile:**
+
+<img src="./images/phone.jpg" alt="phone" width="100%"/>
+
+---
 
 ## Color schemes
 
