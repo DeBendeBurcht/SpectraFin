@@ -1509,7 +1509,7 @@
       background-color: black;
   }
   .backgroundContainer {
-      background-color: rgba(var(--accent),0.17) !important;
+      background-color: rgba(var(--accent),0.37) !important;
   }
   .formDialogHeader,
   .formDialogFooter {
