@@ -9,7 +9,7 @@ A Modified Theme based Zesty Theme By stpnwf [ZestyTheme](https://github.com/stp
 To add the theme to Jellyfin, copy the following line to Dashboard > General > Custom CSS:
 
 ```
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/theme.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/theme.css');
 ```
 Then, if you haven't already, enable Backdrops for _every_ device using this theme (Settings > Display > Backdrops).¹ 
 
@@ -55,7 +55,7 @@ The default color scheme.
 <img src="./images/colorschemes/blue.png" alt="blue" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/blue.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/blue.css');
 ```
 
 <details>
@@ -72,7 +72,7 @@ The default color scheme.
 <img src="./images/colorschemes/coral.png" alt="coral" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/coral.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/coral.css');
 ```
 
 <details>
@@ -89,7 +89,7 @@ The default color scheme.
 <img src="./images/colorschemes/gray.png" alt="gray" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/gray.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/gray.css');
 ```
 
 <details>
@@ -106,7 +106,7 @@ The default color scheme.
 <img src="./images/colorschemes/green.png" alt="green" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/green.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/green.css');
 ```
 
 <details>
@@ -123,7 +123,7 @@ The default color scheme.
 <img src="./images/colorschemes/purple.png" alt="purple" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/purple.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/purple.css');
 ```
 
 <details>
@@ -140,7 +140,7 @@ The default color scheme.
 <img src="./images/colorschemes/red.png" alt="red" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/red.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/red.css');
 ```
 
 <details>
@@ -157,7 +157,7 @@ The default color scheme.
 <img src="./images/colorschemes/yellow.png" alt="yellow" width="30%"/>
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/yellow.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/yellow.css');
 ```
 
 <details>
@@ -176,7 +176,7 @@ For more info on custom colors [click here](./colorschemes/COLORS.md). For more 
 Finally, _if_ you would like to use the alternative(stylish) login wallpaper, add the line below to your Custom CSS as well:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/login-alt.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/login-alt.css');
 ```
 
 This is a comparison between the minimal(default) and stylish versions of the login wallpaper:
