@@ -1,2 +1,9 @@
-#loginPage {background: var(--stylish-login) !important;} 
-#loginPage .padded-left.padded-right.padded-bottom-page{backdrop-filter: blur(8px);background: rgba(var(--dark-highlight),.43);}
+#loginPage {
+    background: var(--stylish-login) !important;
+}
+
+#loginPage .padded-left.padded-right.padded-bottom-page {
+    backdrop-filter: blur(8px);
+    background: rgba(var(--dark-highlight), .43);
+    padding-top: 20px; /* Adjust this value to reduce the top padding */
+}
