@@ -1,6 +1,6 @@
 # SpectraFin
 
-ACustom version of Zesty Theme By stpnwf, its a minimal and elegant theme for Jellyfin based on/inspired by [Ultrachromic](https://github.com/CTalvio/Ultrachromic), [Glassmorphism](https://github.com/alexyle/jellyfin-theme), [Scyfin](https://github.com/loof2736/scyfin), [JellyTheme](https://github.com/alexyle/jellyfin-theme) & [Zombie](https://github.com/MakD/zombie-release/tree/main).
+A Modified Theme based Zesty Theme By stpnwf[ZestyTheme](https://github.com/stpnwf/ZestyTheme), Which is a minimal and elegant theme for Jellyfin based on/inspired by [Ultrachromic](https://github.com/CTalvio/Ultrachromic), [Glassmorphism](https://github.com/alexyle/jellyfin-theme), [Scyfin](https://github.com/loof2736/scyfin), [JellyTheme](https://github.com/alexyle/jellyfin-theme) & [Zombie](https://github.com/MakD/zombie-release/tree/main).
  
 **Now with two login wallpaper options: minimal and stylish!**<br>
 Compatible with 10.9.10+ & Tablets!
