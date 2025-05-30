@@ -5,5 +5,5 @@
 #loginPage .padded-left.padded-right.padded-bottom-page {
     backdrop-filter: blur(8px);
     background: rgba(var(--dark-highlight), .43);
-    padding-top: 20px; /* Adjust this value to reduce the top padding */
+    padding-top: 2000px; /* Adjust this value to reduce the top padding */
 }
