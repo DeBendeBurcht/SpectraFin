@@ -176,7 +176,7 @@ For more info on custom colors [click here](./colorschemes/COLORS.md). For more 
 Finally, _if_ you would like to use the alternative(stylish) login wallpaper, add the line below to your Custom CSS as well:
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/login-alt.css');
+@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/better-login.css');
 ```
 
 This is a comparison between the minimal(default) and stylish versions of the login wallpaper:
