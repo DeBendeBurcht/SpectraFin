@@ -2103,7 +2103,7 @@
 
   /* Hide extra buttons in media player */
 
-  .btnPreviousChapter, .btnNextChapter, .btnPreviousTrack, .buttons.focuscontainer-x .btnUserRating {
+  .btnPreviousChapter, .btnNextChapter, .btnRewind, .btnFastForward .btnPreviousTrack, .buttons.focuscontainer-x .btnUserRating {
     display: none;
   }
 
