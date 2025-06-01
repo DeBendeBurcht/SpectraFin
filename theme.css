@@ -304,7 +304,7 @@
     color: rgba(var(--darkest));
   }
 
-  .layout-desktop .btnPlay.detailButton {
+  .layout-desktop Play.detailButton {
     flex-direction: row;
   }
 
@@ -2079,11 +2079,13 @@
 	  color: rgba(var(--accent));
   }
 
-
+  .btnRewind, .btnFastForward{
+	background-color: rgba(var(--accent));  
+  }
   /* Hide extra buttons in media player */
 
 
-  .btnPreviousChapter, .btnNextChapter, .btnRewind, .btnFastForward, .btnPreviousTrack, .buttons.focuscontainer-x .btnUserRating {
+  .btnPreviousChapter, .btnNextChapter, .btnPreviousTrack, .buttons.focuscontainer-x .btnUserRating {
     display: none;
   }
 
