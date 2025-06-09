@@ -2,12 +2,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); body, h1, h2, h3, h4 {font-family: 'Montserrat', sans-serif;}
 
   :root {
-    --white: 243, 242, 243;           /* F3F2F3 */
-    --white-off: 207, 221, 233;       /* CFDDE9 */
-    --jade-green: 0, 172, 111;        /* 00AC6F */
-    --honey-yellow: 255, 194, 85;     /* FFC255 */
-    --cherry-red: 212, 51, 83;        /* D43353 */
-    --deep-blue: 78, 116, 247;        /* 4E74F7 */
+  --white: 245, 244, 245;           /* Slightly warmer white (#F5F4F5) */
+  --white-off: 210, 225, 235;       /* Subtle shift to a cooler off-white (#D2E1EB) */
+  --jade-green: 0, 175, 115;        /* Slightly brighter green (#00AF73) */
+  --honey-yellow: 255, 196, 87;     /* Minor tweak to yellow (#FFC457) */
+  --cherry-red: 215, 54, 86;        /* Slight softening of red (#D73656) */
+  --deep-blue: 80, 120, 250;        /* Adjusted to complement purple (#5078FA) */
   }
   :root {
     --rounding: 12px;
@@ -2675,7 +2675,7 @@
   }
 
   /* replaces Jellyfin logo */
-  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
+  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
 
   /* fixes issue with Movies > Genres hover boxes */
   .sectionTitleTextButton > .sectionTitle {
