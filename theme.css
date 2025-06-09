@@ -1589,6 +1589,9 @@
   .layout-desktop .headerTabs, .layout-desktop .headerRight {
    box-shadow: 1px 3px 6px rgba(var(--darkest),.5);
   }
+  .layout-desktop .headerLeft {
+   box-shadow: 1px 3px 6px rgba(var(--darkest),.5);
+  }
   .blurhashed {
 	  box-shadow: 1px 1px 4px 0px rgba(var(--darkest),.3) !important;
   }
@@ -2556,13 +2559,21 @@
 	  margin-top: 4px;
   }
 
-  /* Removes hover bg from right headerbar */
+  /* Removes hover bg from left and right headerbar */
 
   .headerRight .paper-icon-button-light:hover, .headerRight .paper-icon-button-light:hover:not(:disabled) {
     background-color: transparent !important;
   }
 
   .headerRight .paper-icon-button-light:focus, .headerRight .paper-icon-button-light:focus:not(:disabled) {
+    background-color: transparent !important;
+  }
+
+  .headerLeft .paper-icon-button-light:hover, .headerLeft .paper-icon-button-light:hover:not(:disabled) {
+    background-color: transparent !important;
+  }
+
+  .headerLeft .paper-icon-button-light:focus, .headerLeft .paper-icon-button-light:focus:not(:disabled) {
     background-color: transparent !important;
   }
   
@@ -2592,6 +2603,7 @@
 
   /* Button height */
   .headerRight,
+  .headerLeft,
   .layout-desktop .emby-tab-button {
       height: 45px !important;
   }
