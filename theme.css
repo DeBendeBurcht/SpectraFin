@@ -1,5 +1,5 @@
   @import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/colorschemes/purple.css');
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); body, h1, h2, h3, h4 {font-family: 'Montserrat', sans-serif;}
 
   :root {
     --white: 243, 242, 243;           /* F3F2F3 */
