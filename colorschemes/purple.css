@@ -8,7 +8,7 @@
   --dark-highlight: 70, 65, 80;    /* Lighter highlight to blend with logo #464150 */
   --dark-apparent: 45, 40, 50;     /* Adjusted for consistency with new scheme #2D2832 */
   
-  --stylish-login: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/login-wallpapers/stylish-purple.png");
+  --stylish-login: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/login-wallpapers/stylish-purple.png");
 }
 
 #loginPage {background: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/login-wallpapers/minimal-purple.png") !important;}
