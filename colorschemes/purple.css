@@ -11,6 +11,6 @@
   --stylish-login: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/login-wallpapers/stylish-purple.png");
 }
 
-#loginPage {background: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/login-wallpapers/minimal-purple.png") !important;}
-.layout-tv .backgroundContainer, .layout-desktop .backgroundContainer {background: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/gradients/purple.png") no-repeat center center;}
+#loginPage {background: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/login-wallpapers/minimal-purple.png") !important;}
+.layout-tv .backgroundContainer, .layout-desktop .backgroundContainer {background: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/gradients/purple.png") no-repeat center center;}
 .sessionAppInfo img {filter: invert(40%) sepia(70%) saturate(400%) hue-rotate(230deg) brightness(110%) contrast(70%);}
