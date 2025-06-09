@@ -2675,7 +2675,7 @@
   }
 
   /* replaces Jellyfin logo */
-  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/Spectra_Purple.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
+  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/spectra-logo-original.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/spectra-logo-original.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/spectra-logo-original.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
 
   /* fixes issue with Movies > Genres hover boxes */
   .sectionTitleTextButton > .sectionTitle {
