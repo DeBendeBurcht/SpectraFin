@@ -1,7 +1,7 @@
 /* Purple color scheme */
 
 :root {
-  --accent: 210, 190, 240;         /* Slightly lighter purple, closer to logo #C8B4E6 */
+  --accent: 216, 196, 241;         /* Slightly lighter purple, closer to logo #C8B4E6 */
   --accent-off: 110, 105, 125;     /* Softer grayish-purple, aligns with logo shadows #6E697D */
   --dark: 40, 35, 45;              /* Slightly lighter dark base #28232D */
   --darkest: 30, 28, 35;           /* Adjusted darkest to match logo depth #1E1C23 */
