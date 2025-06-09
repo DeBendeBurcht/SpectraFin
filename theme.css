@@ -2079,8 +2079,15 @@
 	  color: rgba(var(--accent));
   }
 
-  .btnRewind, .btnFastForward{
+  .btnRewind{
       margin-right: 1em !important; 
+      content: "replay_10";
+      font-family: "Material Icons";
+  }
+  .btnFastForward{
+      margin-right: 1em !important; 
+      content: "forward_10";
+      font-family: "Material Icons";
   }
   /* Hide extra buttons in media player */
 
