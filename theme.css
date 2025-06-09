@@ -2669,13 +2669,13 @@
     color: rgba(var(--dark)) !important;
   }
 
-  /* hides card overlay buttons (watched, favorites, etc) */
+  /* hides card overlay buttons watched, favorites, etc */
   .cardOverlayButton-br {
 	  display: none;
   }
 
   /* replaces Jellyfin logo */
-  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/logo/spectra-logo-original.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/logo/spectra-logo-original.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/logo/spectra-logo-original.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
+  .adminDrawerLogo img { content: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } imgLogoIcon { content: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } .pageTitleWithLogo { background-image: url(https://cdn.jsdelivr.net/gh/stpnwf/ZestyTheme@latest/images/logo/jellyfin-logo-light.png) !important; } /* imgur link https://i.imgur.com/wHaGTm4.png */
 
   /* fixes issue with Movies > Genres hover boxes */
   .sectionTitleTextButton > .sectionTitle {
