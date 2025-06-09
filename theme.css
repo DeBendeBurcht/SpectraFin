@@ -2080,7 +2080,7 @@
   }
 
   .btnRewind, .btnFastForward{
-	background-color: rgba(var(--accent));  
+      margin-right: 1em !important; 
   }
   /* Hide extra buttons in media player */
 
