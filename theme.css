@@ -2816,7 +2816,9 @@
   }
 
   .layout-mobile .headerLeft .paper-icon-button-light > .material-icons {
-    filter: drop-shadow(2px 2px 1.6px rgb(var(--darkest)));
+	  height: 40px !important;
+	  filter: drop-shadow(3px 2px 3px rgba(var(--darkest),.35));
+	  margin-right: 0.35em;
   }
 
   .layout-mobile .emby-button-foreground {
