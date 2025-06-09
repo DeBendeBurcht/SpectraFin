@@ -2089,9 +2089,19 @@
       content: "forward_10";
       font-family: "Material Icons";
   }
+
+  /* Modify player buttons */
+  .material-icons.fast_rewind::before {
+      content: "\e059";
+  }
+  .material-icons.fast_forward::before {
+      content: "\e057";
+  }
+  .material-icons.audiotrack::before {
+      content: "\e91f";
+  }
+
   /* Hide extra buttons in media player */
-
-
   .btnPreviousChapter, .btnNextChapter, .btnPreviousTrack, .buttons.focuscontainer-x .btnUserRating {
     display: none;
   }
