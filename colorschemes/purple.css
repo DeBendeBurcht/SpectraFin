@@ -1,12 +1,12 @@
 /* Purple color scheme */
 
 :root {
-  --accent: 170, 102, 204;         /* #AA66CC, a muted Jellyfin-inspired purple */
-  --accent-off: 140, 120, 160;     /* #8C78A0, a softer purple-gray for secondary accents */
-  --dark: 28, 25, 38;              /* #1C1926, a deep, Jellyfin-like dark background */
-  --darkest: 20, 18, 28;           /* #14121C, slightly darker for depth */
-  --dark-highlight: 70, 65, 90;    /* #46415A, a subtle highlight for contrast */
-  --dark-apparent: 40, 38, 50;     /* #282632, a mid-tone gray for elements */
+  --accent: 200, 180, 230;         /* Slightly darker and softer purple, closer to logo gradient (#C8B4E6) */
+  --accent-off: 110, 100, 120;     /* Adjusted to a muted purple tone (#6E6478) */
+  --dark: 40, 35, 45;              /* Slightly lighter dark base (#28232D) */
+  --darkest: 30, 25, 35;           /* Softer darkest shade (#1E1923) */
+  --dark-highlight: 70, 65, 80;    /* Warmer highlight purple (#464150) */
+  --dark-apparent: 45, 40, 50;     /* Adjusted for better contrast (#2D2832) */
   
   --stylish-login: url("https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraTheme@latest/images/login-wallpapers/stylish-purple.png");
 }
