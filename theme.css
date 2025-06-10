@@ -2,8 +2,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); body, h1, h2, h3, h4 {font-family: 'Montserrat', sans-serif;}
 
   :root {
-  --white: 245, 244, 245;           /* Slightly warmer white (#F5F4F5) */
-  --white-off: 210, 225, 235;       /* Subtle shift to a cooler off-white (#D2E1EB) */
+  --white: 230, 230, 230; /* Softer white (#E6E6E6) */
+  --white-off: 200, 210, 220; /* Cooler off-white (#C8D2DC) */
   --jade-green: 0, 175, 115;        /* Slightly brighter green (#00AF73) */
   --honey-yellow: 255, 196, 87;     /* Minor tweak to yellow (#FFC457) */
   --cherry-red: 215, 54, 86;        /* Slight softening of red (#D73656) */
