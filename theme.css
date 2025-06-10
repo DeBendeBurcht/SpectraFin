@@ -1312,15 +1312,15 @@
 }
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-blue) var(--custom-white);
+    scrollbar-color: var(--dark-blue) (var(--dark), 0.5);
 }
 *::-webkit-scrollbar-track {
-    background-color: var(--custom-white);
+    background-color: (var(--dark), 0.5);
 }
 *::-webkit-scrollbar-thumb {
     background-color: var(--dark-blue) ;
     border-radius: 20px;
-    border: 3px solid var(--custom-white);
+    border: 3px solid (var(--custom-white), 0.7);
 }
 
 
