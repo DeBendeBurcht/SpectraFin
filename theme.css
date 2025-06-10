@@ -464,6 +464,8 @@
   /* change button hover color */
   .raised:hover, .fab:hover, a[data-role="button"]:hover {
     background: rgba(var(--accent), 0.95) !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(var(--darkest), 0.3);
   }
 
   /* hover background in settings */
@@ -2284,6 +2286,8 @@
   .raised, .fab, a[data-role="button"] {
     background: linear-gradient(135deg, rgba(var(--accent), 0.9), rgba(var(--accent), 0.7)) !important;
     color: rgba(var(--darkest), 1) !important;
+    transition: all 0.2s ease-in-out !important;
+    transform: scale(1);
   }
 
   div[data-role="controlgroup"] a.ui-btn-active {
