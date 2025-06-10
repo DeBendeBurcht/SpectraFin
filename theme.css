@@ -1200,9 +1200,15 @@
   }
   .iconOsdProgressInner {
     background: rgb(var(--accent));
+    background: rgba(var(--accent), 0.75) !important;Add commentMore actions
+    backdrop-filter: blur(20px) !important;
   }
   .iconOsdProgressOuter {
-	  background: rgba(var(--dark-highlight));
+	  background: rgba(var(--dark-highlight), 0.45)!important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(var(--white), 0.1) !important;
+      border-radius: var(--rounding) !important;
+      box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
   }
 
   .paper-icon-button-light:hover,
@@ -2082,13 +2088,16 @@
 	  margin: 0 1em 0 .29em;
 	  margin-right: 0px;
   }
-  /* theme volume OSD */
+ /* theme volume OSD */
   .iconOsd, .subtitleSyncContainer {
-	-webkit-backdrop-filter: blur(5px);
-	  backdrop-filter: blur(5px);
-	  background: rgba(var(--dark),.8);
-	  border-radius: var(--rounding);
-	  color: rgba(var(--accent));
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      border-radius: var(--rounding);
+      background: rgba(var(--dark), 0.25) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(var(--white), 0.1) !important;
+      border-radius: var(--rounding) !important;
+      box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
   }
 
   .btnRewind{
@@ -2220,7 +2229,7 @@
     display:flex;
     height:.8em;
     left:0;
-    margin-top:-.51em;
+    margin-top:-.45em;
     overflow:hidden;
     padding:0;
     top:50%;
