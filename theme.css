@@ -2668,10 +2668,11 @@
 
   .headerTabs,
   .headerRight {
-      background-color:rgba(var(--white-off), 0.35) !important;
       border-radius: var(--rounding-circle) !important;
       color: rgba(var(--darkest)) !important;
-      backdrop-filter: blur(50px) !important;
+      background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+      backdrop-filter: blur(50px) saturate(150%) !important;
+      border: 1px solid rgba(var(--white), 0.1);
   }
 
   .homeLibraryText, .emby-button-foreground {
