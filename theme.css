@@ -3149,9 +3149,12 @@
   }
 
  .layout-mobile .headerRight {
-	  height: 40px !important;
-	  filter: drop-shadow(3px 2px 3px rgba(var(--darkest),.35));
-	  margin-right: 0.35em;
+      height: 40px !important;
+      filter: drop-shadow(3px 2px 3px rgba(var(--darkest),.35));
+      margin-right: 0.35em;
+      background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+      backdrop-filter: blur(50px) saturate(150%) !important;
+      border: 1px solid rgba(var(--white), 0.1);
   }
 
   /* adds padding to custom css box */
