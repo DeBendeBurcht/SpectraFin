@@ -2129,6 +2129,21 @@
     font-size: 125%;
   }
 
+/* Glassmorphic effect for play/pause buttons and video settings */
+.videoOsdBottom .buttons .paper-icon-button-light,
+.videoOsdBottom .buttons .paper-icon-button-light:hover,
+.videoSettingsContainer {
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.1);
+    border-radius: 50% !important; /* Makes the element fully round */
+	
+}
+.videoOsdBottom .buttons {
+    border-radius: 50% !important;
+    padding: 8px 12px !important;
+}
+
   /* increase header bar icon sizes */
   .layout-desktop .headerTop {
    font-size: 125%;
