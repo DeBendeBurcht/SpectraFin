@@ -26,8 +26,9 @@
     filter: blur(6px) saturate(120%) contrast(120%) brightness(40%);
   }
   .card.show-animation:focus>.cardBox {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
 
@@ -1661,28 +1662,19 @@
    }
   }
   @keyframes pulse {
-   0% {
-    -webkit-transform:scale(.95);
-    transform:scale(.95);
-    color:rgba(var(--accent),.7);
-    background:rgba(var(--accent),.3);
-    box-shadow:0 0 0 0 rgba(var(--accent),.3)
-   }
-   70% {
-    -webkit-transform:scale(1);
-    transform:scale(1);
-    color:rgba(var(--accent),0);
-    background:rgba(var(--accent),0);
-    box-shadow:0 0 0 60px rgba(var(--accent),0)
-   }
-   to {
-    -webkit-transform:scale(.95);
-    transform:scale(.95);
-    color:rgba(var(--accent),0);
-    background:rgba(var(--accent),0);
-    box-shadow:0 0 0 0 rgba(var(--accent),0)
-   }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--accent), 0.4);
   }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(var(--accent), 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--accent), 0);
+  }
+}
   @-webkit-keyframes infinite-pulse {
    0% {
     -webkit-transform:scale(.95);
