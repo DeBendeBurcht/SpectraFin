@@ -1851,7 +1851,9 @@
     }
     
     .paper-icon-button-light:hover:not(.headerButtonRight) {
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(10px);
+      border-radius: 50% !important; /* Makes the element fully round */
+      box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
     }
   }
 
