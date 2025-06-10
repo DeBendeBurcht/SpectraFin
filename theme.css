@@ -2007,6 +2007,20 @@
     display: none !important;
   }
 
+  /* Glassmorphic object behind logo */
+  .pageTitleWithDefaultLogo::before {
+    content: '';
+    position: absolute;
+    width: 130px; 
+    height: 40px; 
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.1);
+    border-radius: 999px !important; /* 50% rounding for pill shape */
+    z-index: -1; /* Behind logo */
+    transform: translateX(-10%); /* Center horizontally */
+  }
+
   /* margin to Jellyfin logo */
   .pageTitle {
 	  margin: 0 0 0 .15em;
@@ -2885,6 +2899,20 @@
 	  height: 40px !important;
 	  filter: drop-shadow(3px 2px 3px rgba(var(--darkest),.35));
 	  margin-right: 0.35em;
+  }
+
+  /* Glassmorphic object behind Hamburger Menu */
+  .headerLeft::before {
+    content: '';
+    position: absolute;
+    width: 42px; 
+    height: 42px; 
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.1);
+    border-radius: 999px !important; /* 50% rounding for pill shape */
+    z-index: -1; /* Behind logo */
+    transform: translateX(21%); /* Center horizontally */
   }
 
   .layout-mobile .emby-button-foreground {
