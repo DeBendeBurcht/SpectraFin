@@ -1964,6 +1964,9 @@
   }
 
   #loginPage .padded-left.padded-right.padded-bottom-page {
+      box-shadow: 0 0 15px rgba(var(--accent), 0.3);
+      border: 1px solid rgba(var(--accent), 0.2);
+      transition: box-shadow 0.3s ease;
       margin-left: auto;
       margin-right: auto;
       background: rgba(var(--dark-highlight),.33);
@@ -2331,6 +2334,11 @@
 	  padding-top: 0.7em !important;
 	  padding-bottom: 0.7em !important;
 	  border-radius: 28px !important;
+  }
+  .layout-desktop #childrenContent .listItem:hover, .layout-mobile #childrenContent .listItem:hover {
+          background: linear-gradient(135deg, rgba(var(--darkest), 0.6), rgba(var(--darkest), 0.4));
+          box-shadow: 0 4px 12px rgba(var(--darkest), 0.3);
+          transition: all 0.3s ease;
   }
 
   #childrenContent .listItem:hover:not(.listItem-button) {
