@@ -1791,7 +1791,7 @@
   .itemProgressBarForeground {
     background: rgb(var(--accent));
     border-radius: var(--rounding-circle);
-
+    transition: width 0.4s ease-in-out;
   }
 
    .innerCardFooter {
@@ -3817,8 +3817,9 @@
 	border-color: rgba(var(--accent),.75) !important;
 	border-radius: 50px !important;
 	background-color: rgba(var(--accent),0.75);
-	box-shadow: 2px 3px 16px rgba(var(--accent),0.55);
 	backdrop-filter: blur(5px);
+	box-shadow: 0 0 20px rgba(var(--accent), 0.7), 0 4px 16px rgba(var(--darkest), 0.5);
+        transition: box-shadow 0.3s ease;
 }
 
 .layout-tv .missingIndicator, .layout-tv .unairedIndicator, .layout-tv .detailTable, .layout-tv .primaryImageWrapper > img, .layout-tv .toast, .layout-tv .cardContent, .layout-tv .sessionNowPlayingInnerContent, .layout-tv .listItem, .layout-tv .listItem:hover, .layout-tv .cardImage, .layout-tv .fab, .layout-tv .raised, .layout-tv .itemSelectionPanel, .layout-tv .cardContent-button, .layout-tv .cardContent-shadow, .layout-tv .itemDetailImage, .layout-tv .cardImageContainer, .layout-tv .cardPadder, .layout-tv .listItemImage, .layout-tv .listItemButton, .layout-tv .headerButton, .layout-tv .innerCardFooter, .layout-tv .blurhash-canvas, .layout-tv .dialog, .layout-tv .countIndicator, .layout-tv .playedIndicator, .layout-tv .listItemIcon, .layout-tv .listItem-border, .layout-tv .button-flat, .layout-tv .visualCardBox, .layout-tv .emby-select-withcolor, .layout-tv .chapterThumbTextContainer, .layout-tv .chapterThumbContainer, .layout-tv .chapterThumb, .layout-tv .emby-input, .layout-tv .emby-textarea, .layout-tv .emby-select-withcolor, .layout-tv .nowPlayingPageImage, .layout-tv .upNextDialog-poster-img, .layout-tv .upNextContainer {
