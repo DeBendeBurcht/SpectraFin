@@ -2905,14 +2905,14 @@
   .headerLeft::before {
     content: '';
     position: absolute;
-    width: 42px; 
-    height: 42px; 
+    width: 40px; 
+    height: 40px; 
     background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
     backdrop-filter: blur(50px) saturate(150%) !important;
     border: 1px solid rgba(var(--white), 0.1);
-    border-radius: 999px !important; /* 50% rounding for pill shape */
+    border-radius: 50px !important; /* 50% rounding for pill shape */
     z-index: -1; /* Behind logo */
-    transform: translateX(21%); /* Center horizontally */
+    transform: translateX(24%); /* Center horizontally */
   }
 
   .layout-mobile .emby-button-foreground {
