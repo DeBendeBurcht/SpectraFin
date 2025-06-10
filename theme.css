@@ -2132,9 +2132,9 @@
 
 
   /* increase player header and bottom icon sizes */
-
   .osdHeader .headerTop {
 	  max-height: 3em;
+	  padding: 0px 24px;
 	  pointer-events: all;
 	  font-size: 125%;
   }
