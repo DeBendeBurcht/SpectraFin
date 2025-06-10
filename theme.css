@@ -2023,6 +2023,7 @@
     min-height: 4em; /* Width before rotation */
     width: 6.5em; /* Actual width after rotation */
     height: 2em; /* Actual height after rotation */
+	padding: 20px 2px !important;
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -2030,9 +2031,11 @@
     pointer-events: none;
     transform-origin: top left;
     transform: rotate(-90deg);
-    background-color: rgba(var(--dark), 0.8);
-    border-radius: var(--rounding);
-    backdrop-filter: blur(3px);
+    background: rgba(var(--dark), 0.25) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(var(--white), 0.1) !important;
+    border-radius: var(--rounding) !important;
+    box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
   }
   /* Increase the hover area around the mute button */
   .buttonMute {
