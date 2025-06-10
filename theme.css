@@ -2893,7 +2893,7 @@
 
 
   /* Glassmorphic object behind Hamburger Menu */
-  .headerLeft::before {
+  .layout-mobile .headerLeft::before {
     content: '';
     position: absolute;
     width: 40px; 
@@ -2903,7 +2903,20 @@
     border: 1px solid rgba(var(--white), 0.1);
     border-radius: 50px !important; /* 50% rounding for pill shape */
     z-index: -1; /* Behind logo */
-    transform: translateX(24%); /* Center horizontally */
+	transform: translateX(8%); /* Center horizontally */
+    
+  }
+  .layout-desktop .headerLeft::before{
+	content: '';
+    position: absolute;
+    width: 40px; 
+    height: 40px; 
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.1);
+    border-radius: 50px !important; /* 50% rounding for pill shape */
+    z-index: -1; /* Behind logo */
+	transform: translateX(24%); /* Center horizontally */
   }
 
   .layout-mobile .emby-button-foreground {
