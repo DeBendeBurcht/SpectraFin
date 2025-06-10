@@ -1306,22 +1306,12 @@
     background: rgba(var(--accent));
   }
 
-::-webkit-scrollbar {
-    background-color: transparent;
-    width: 10px;
-}
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--dark-blue) (var(--dark), 0.5);
-}
-*::-webkit-scrollbar-track {
-    background-color: (var(--dark), 0.5);
-}
-*::-webkit-scrollbar-thumb {
-    background-color: var(--dark-blue) ;
-    border-radius: 20px;
-    border: 3px solid (var(--custom-white), 0.7);
-}
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent),0.8) !important;
+  }
+  * {
+    scrollbar-color: rgba(var(--accent),0.8) #0000 !important;
+  }
 
 
 
