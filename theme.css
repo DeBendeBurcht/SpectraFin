@@ -2008,7 +2008,20 @@
   }
 
   /* Glassmorphic object behind logo */
-  .pageTitleWithDefaultLogo::before {
+  .layout-mobile .pageTitleWithDefaultLogo::before {
+    content: '';
+    position: absolute;
+    width: 90px; 
+    height: 40px; 
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.35), rgba(var(--white-off), 0.2)) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.1);
+    border-radius: 999px !important; /* 50% rounding for pill shape */
+    z-index: -1; /* Behind logo */
+    transform: translateX(-8%); /* Center horizontally */
+  }
+ 
+  .layout-desktop .pageTitleWithDefaultLogo::before {
     content: '';
     position: absolute;
     width: 130px; 
