@@ -3113,19 +3113,22 @@
 
 
   /* tweaks playback chapter thumbs */
-
   .chapterThumbTextContainer {
-	  background-color: rgba(var(--dark),.7) !important;
-	  width: 50%;
-	  margin: 0 auto;
+	  background: rgba(var(--dark), 0.75) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(var(--white), 0.1) !important;
+      border-radius: var(--rounding) !important;
+      box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
+	  width: 20%;
+	  margin: 2 auto;
 	  position: absolute;
 	  margin-bottom: 7px;
-	  border-radius: 5.5px !important;
-	  margin-left: 7px;
-	  padding-left: 8px;
+	  border-radius: 14px !important;
+	  margin-left: 6px;
+	  padding-left: 9px;
 	  padding-right: 8px;
-	  padding-top: 5px;
-    padding-bottom: 2px;
+	  padding-top: 0px;
+      padding-bottom: 2px;
   }
 
   .sliderBubble {
