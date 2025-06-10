@@ -2896,11 +2896,7 @@
     background-color: rgba(190, 80, 10, 0);
   }
 
-  .layout-mobile .headerLeft .paper-icon-button-light > .material-icons {
-	  height: 40px !important;
-	  filter: drop-shadow(3px 2px 3px rgba(var(--darkest),.35));
-	  margin-right: 0.35em;
-  }
+
 
   /* Glassmorphic object behind Hamburger Menu */
   .headerLeft::before {
