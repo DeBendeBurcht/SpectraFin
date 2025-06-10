@@ -2610,6 +2610,12 @@
       color: rgba(var(--darkest)) !important;
       backdrop-filter: blur(50px) !important;
   }
+  .pageTitle  {
+      background-color:rgba(var(--white-off), 0.35) !important;
+      border-radius: var(--rounding-circle) !important;
+      color: rgba(var(--darkest)) !important;
+      backdrop-filter: blur(50px) !important;
+  }
 
   .homeLibraryText, .emby-button-foreground {
 	  color: rgb(var(--darkest));
