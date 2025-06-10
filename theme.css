@@ -2882,9 +2882,6 @@
     }
   }
 
-  .layout-mobile .mainDrawerButton {
-    display: block !important;
-  }
 
   .skinHeader.focuscontainer-x.skinHeader-withBackground.skinHeader-blurred {
     background: none;
