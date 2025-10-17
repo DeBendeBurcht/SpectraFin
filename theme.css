@@ -2960,8 +2960,8 @@
 
 
   .layout-mobile .sectionTabs {
-	  padding-left: 0.4em !important;
-	  padding-right: 0.4em !important;
+	  padding-left: 0.2em !important;
+	  padding-right: 0.2em !important;
 	  width: auto;
 	  max-width: calc(100vw - 1em);  /* Constrains total width to viewport minus buffer, preventing awkward overflow */
       align-self: center;
