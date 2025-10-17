@@ -2052,10 +2052,6 @@
 
   /* Spectra Logo Shadows */
   .pageTitleWithLogo { 	  
-	padding-top: px !important;  /* Adds space above to prevent top cutoff */
-    padding-bottom: 4px !important;  /* Adds space below to prevent bottom cutoff */
-    display: inline-block;  /* Ensures padding applies without affecting layout */
-    line-height: 1.1;  /* Slight line-height boost for vertical breathing room */
 	animation: pulse-glow 6.9s infinite;
   }
   @keyframes pulse-glow {
