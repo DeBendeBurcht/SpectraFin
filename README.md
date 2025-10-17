@@ -272,27 +272,20 @@ This is a comparison between the minimal(default) and stylish versions of the lo
 
 ---
 
-**Things I'd like to do, if I can figure out how to (HELP WANTED):** 
+**Things I'd like to do, but havent had time for:** 
 
- Add profile pics back:
-
-<figure>
-    <img src="./images/actor.jpg" alt="actor-page" width="65%">
-    <figcaption>It doesn't seem possible to remove just the poster while keeping the profile pics & season posters...</figcaption>
-</figure>
-
- Add season posters back:
- 
-<figure>
-    <img src="./images/season.jpg" alt="season-poster" width="65%"/>
-    <figcaption>It doesn't seem possible to remove just the poster while keeping the profile pics & season posters...</figcaption>
-</figure>
-
- Turn seasons into a carousel to prevent this behavior:
- 
-<img src="./images/caroussel.jpg" alt="season-caroussel" width="65%"/>
-
- Make it so there is no "overflowing" entries in Genres after I increased Poster size
-
-<img src="./images/genres.jpg" alt="genres" width="65%"/>
+- Add profile pics back:
+- Detail Glass Elements to have a tad more shine
+- Upgrade the Music Interface and player
+- Improve Readability in some areas by making background darker, or changing shadows
+- Make Logo easier to read
+- Improvements to the videoplayer (animations stability, and a small settings menu revamp)
+- Confirm Fix Layout on mobile devices to be more consistent (namely the navigator in libraries, right now its hardcoded)
+- Theme Color dialog in individual user settings (hardcode the links and make a dropdown)
+- Improve versioning (right now i use commit hash)
+- Update Icons to more modern material pack with softer layout and roundings
+- Improve Movie/Series Detail menu
+- Add posters to Movies/Series Detail Menu
+- Add more Animations
+  
 
