@@ -2052,12 +2052,16 @@
 
   /* Spectra Logo Shadows */
   .pageTitleWithLogo { 	  
-	animation: pulse-glow 3.8s infinite;
+	padding-top: px !important;  /* Adds space above to prevent top cutoff */
+    padding-bottom: 4px !important;  /* Adds space below to prevent bottom cutoff */
+    display: inline-block;  /* Ensures padding applies without affecting layout */
+    line-height: 1.1;  /* Slight line-height boost for vertical breathing room */
+	animation: pulse-glow 6.9s infinite;
   }
   @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 2px rgba(240,4,240,0.3)); /* Adds white shadow for visibility */); }
-    33% { filter: drop-shadow(6px -2px 8px rgba(255, 196, 87, 0.2)); /* Honey yellow glow */); }
-    66% { filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));); }
+    0%, 100% { filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
+    33% { filter: drop-shadow(6px -2px 8px rgba(255, 196, 87, 0.3)); /* Honey yellow glow */); }
+    66% { filter: drop-shadow(0 0 2px rgba(240,4,240,0.3)); /* Adds white shadow for visibility */);); }
   }
 
   /* Spectra Logo Hover Animation */
