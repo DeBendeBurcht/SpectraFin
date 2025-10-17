@@ -2966,10 +2966,12 @@
 	  align-self: center;
   }
 
-  .pageTitle {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+/* Slightly enlarge .pageTitle for better logo fit */
+.pageTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 1.18;
+}
 
   .layout-mobile .emby-tab-button {
 	  padding: 0.9em 0.95em;
