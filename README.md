@@ -17,10 +17,11 @@ Then, if you haven't already, enable Backdrops for _every_ device using this the
 
 ### **Old Screenshots:**
 
-<img src="./images/home.jpg" alt="home" width="100%"/>
-<img src="./images/nice-guys.jpg" alt="movies" width="100%"/>
-<img src="./images/avatar.jpg" alt="tv-shows" width="100%"/>
-<img src="./images/player.jpg" alt="player" width="100%"/>
+<img src="./images/Home.PNG" alt="home" width="100%"/>
+<img src="./images/Series.PNG" alt="movies" width="100%"/>
+<img src="./images/Player.PNG" alt="player" width="100%"/>
+<img src="./images/Breaking.PNG" alt="tv-shows" width="100%"/>
+
 
 Two login wallpaper options: Minimal and Stylish.
 
