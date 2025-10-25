@@ -51,11 +51,11 @@
   }
 
   .detailLogo {
-	  height: 16vh;
+	  height: 26vh;
 	  position: absolute;
 	  right: 25vw;
 	  top: 10vh;
-	  width: 34em;
+	  width: 25em;
   }
 
   .layout-desktop .itemBackdrop {
@@ -1866,6 +1866,7 @@
       border-radius: 50% !important; /* Makes the element fully round */
       box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
     }
+	  
   }
 
 
@@ -4200,8 +4201,12 @@
     bottom: .35em;
     right: .35em;
     top: .35em;
-    width: calc(100% - .7em);
+    width: calc(100% - .1em);
     border-radius: var(--rounding-alt);
+}
+
+.channelsContainer{
+    padding-left: .5em !important;
 }
 
 #guideTab {
