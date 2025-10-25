@@ -4200,7 +4200,7 @@
     bottom: .35em;
     right: .35em;
     top: .35em;
-    width: calc(100% - .6em);
+    width: calc(100% - .7em);
     border-radius: var(--rounding-alt);
 }
 
