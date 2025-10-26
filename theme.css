@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/purple.css');
+  @import url('https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/colorschemes/purple.css');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); 
   @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
   
@@ -1211,7 +1211,7 @@
   }
   .iconOsdProgressInner {
     background: rgb(var(--accent));
-    background: rgba(var(--accent), 0.75) !important;
+    background: rgba(var(--accent), 0.75) !important;Add commentMore actions
     backdrop-filter: blur(20px) !important;
   }
   .iconOsdProgressOuter {
@@ -1255,7 +1255,7 @@
   }
 
 
-  /* increases size and changes color of check boxes */
+  ./* increases size and changes color of check boxes */
 
   .checkboxOutline {
     border: 0.25em solid;
@@ -2029,7 +2029,7 @@
     backdrop-filter: blur(50px) saturate(150%) !important;
     border: 1px solid rgba(var(--white), 0.1);
     border-radius: 999px !important; /* 50% rounding for pill shape */
-    z-index: 0 !important; /* Between page backdrop and logo */
+    z-index: -1; /* Behind logo */
     transform: translateX(-8%); /* Center horizontally */
   }
  
@@ -2042,7 +2042,7 @@
     backdrop-filter: blur(50px) saturate(150%) !important;
     border: 1px solid rgba(var(--white), 0.1);
     border-radius: 999px !important; /* 50% rounding for pill shape */
-    z-index: 0 !important; /* Between page backdrop and logo */
+    z-index: -1; /* Behind logo */
     transform: translateX(-10%); /* Center horizontally */
   }
 
@@ -2054,27 +2054,11 @@
   /* Spectra Logo Shadows */
   .pageTitleWithLogo { 	  
 	animation: pulse-glow 6.9s infinite;
-    position: relative !important; /* Ensure positioning context */
-    background-image: none !important; /* Remove logo from background layer */
   }
   @keyframes pulse-glow {
     0%, 100% { filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
     33% { filter: drop-shadow(6px -2px 8px rgba(255, 196, 87, 0.3)); /* Honey yellow glow */); }
     66% { filter: drop-shadow(0 0 2px rgba(240,4,240,0.3)); /* Adds white shadow for visibility */);); }
-  }
-
-  .pageTitleWithLogo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(https://cdn.jsdelivr.net/gh/DeBendeBurcht/SpectraFin@latest/images/logo/spectra-logo-original.png) !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1 !important; /* Place logo above glass */
   }
 
   /* Spectra Logo Hover Animation */
@@ -3062,12 +3046,12 @@
   }
 
 
-  /* Moving to the Left Movie Button Container*/
+  /* moviendo a la Izq Contenedor de botones de pelicula*/
   .layout-mobile .mainDetailButtons {
     padding-left: 0;
   }
 
-  /* Fixing padding and margin, increasing fanart size, and adding gradient */
+  /* arregalndo padding y margin y aumentando tamano de fanart y agregando degradado */
   .layout-mobile .itemBackdrop {
     background-size: contain;
     height: 61.5vw;
