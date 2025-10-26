@@ -4235,3 +4235,17 @@
 .guideChannelImage img {
     box-shadow: 0 0 10px rgba(var(--white), 0.5);  /* Soft white glow */
 }
+
+
+/* TEMP FIXES FOR LOGO GLASSSMORPHIC BLUR - REMOVE AFTER TESTING */
+.layout-mobile .pageTitleWithDefaultLogo,
+.layout-desktop .pageTitleWithDefaultLogo {
+  position: relative !important; /* Ensures absolute positioning relative to parent */
+}
+
+.layout-mobile .pageTitleWithDefaultLogo::before,
+.layout-desktop .pageTitleWithDefaultLogo::before {
+  z-index: 1 !important; /* Pull forward to blur correct layer */
+  backdrop-filter: blur(80px) saturate(150%) !important; /* Higher blur for stronger effect */
+}
+/* END TEMP FIXES */
