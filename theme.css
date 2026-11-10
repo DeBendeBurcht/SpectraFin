@@ -344,7 +344,7 @@ a[data-role="button"]:hover {
 .navMenuOption-selected {
   background: rgba(var(--accent), 0.7) !important;
   color: rgba(var(--darkest)) !important;
-  backdrop-filter: blur(50px) !important;
+  backdrop-filter: blur(18px) !important;
 }
 .paper-icon-button-light:hover,
 .raised.homeLibraryButton:hover,
@@ -465,7 +465,7 @@ a[data-role="button"] {
   -webkit-backdrop-filter: blur(22px) saturate(140%) !important;
   border: 1px solid rgba(var(--white), 0.14) !important;
   border-radius: var(--rounding) !important;
-    min-width: 0 !important;
+  min-width: 0 !important;
   max-width: 50vw !important;
   width: fit-content !important;
   box-shadow:
@@ -1016,13 +1016,19 @@ body:has(.MuiAppBar-root) .MuiAppBar-root.MuiAppBar-colorTransparent {
   width: 100% !important;
   left: 0 !important;
   right: 0 !important;
+  /* Prevent any residual full-width blur / height from the AppBar itself */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
+
 body:has(.MuiAppBar-root) .MuiToolbar-root:first-of-type {
   backdrop-filter: blur(50px) saturate(150%) !important;
   -webkit-backdrop-filter: blur(50px) saturate(150%) !important;
   border: 1px solid rgba(var(--white), 0.1) !important;
   border-radius: var(--rounding-circle) !important;
-  box-shadow: 0 4px 24px rgba(var(--darkest), 0.25) !important;
+  box-shadow: 0 4px 20px rgba(var(--darkest), 0.25) !important;
   margin: 0.75em 1em 0 !important;
   width: calc(100% - 2em) !important;
   min-height: 52px !important;
@@ -1080,7 +1086,7 @@ body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):hover,
 body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):hover,
 .emby-tab-button:not(.emby-tab-button-active):hover {
   color: rgb(var(--accent)) !important;
-  transform: scale(0.9) !important;
+  transform: scale(0.96) !important;
 }
 
 
@@ -1093,55 +1099,7 @@ body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):hover::before,
   outline-color: rgba(var(--white), 0.14);
   border-radius: var(--rounding-circle);
   box-shadow: 0 4px 18px rgba(var(--accent), 0.25), 0 0 24px rgba(var(--accent), 0.12);
-  inset: 5px -9px;          /* slightly smaller so it doesn’t go under neighbours */
-}
-
-/* ---------- Glass material behind top navigation bar Navigations ---------- */
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected),
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected),
-.emby-tab-button:not(.emby-tab-button-active) {
-  position: relative;
-  background: transparent !important;
-  border-radius: var(--rounding) !important;
-  outline: none !important;
-  transition: color 0.25s ease, transform 0.25s ease !important;
-  z-index: 1;
-}
-
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected)::before,
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected)::before,
-.emby-tab-button:not(.emby-tab-button-active)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: rgba(var(--accent), 0);
-  outline: 1px solid transparent;
-  outline-offset: -1px;
-  z-index: -1;
-  transition: background 0.45s ease, outline-color 0.25s ease,
-              border-radius 0.25s ease, box-shadow 0.25s ease,
-              inset 0.25s ease !important;
-}
-
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):hover,
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):hover,
-.emby-tab-button:not(.emby-tab-button-active):hover {
-  color: rgb(var(--accent)) !important;
-  transform: scale(0.9) !important;
-}
-
-
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):hover::before,
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):hover::before,
-.emby-tab-button:not(.emby-tab-button-active):hover::before {
-  background: rgba(var(--accent), 0.38) !important;
-  backdrop-filter: blur(22px) saturate(140%);
-  -webkit-backdrop-filter: blur(22px) saturate(140%);
-  outline-color: rgba(var(--white), 0.14);
-  border-radius: var(--rounding-circle);
-  box-shadow: 0 4px 18px rgba(var(--accent), 0.25), 0 0 24px rgba(var(--accent), 0.12);
-  inset: 5px -9px;          /* slightly smaller so it doesn’t go under neighbours */
+  inset: 4px -6px;           /* slightly smaller so it doesn’t go under neighbours */
 }
 
 /* Shrinks the overall button slightly more when clicked */
@@ -1339,6 +1297,13 @@ body:has(.MuiAppBar-root) #indexPage,
 body:has(.MuiAppBar-root) .homeSectionsContainer {
   padding-top: 0.5em;
 }
+
+/* Extra breathing room when the library second toolbar is present */
+body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ .mainAnimatedPages,
+body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ * .mainAnimatedPages {
+  padding-top: 1em;
+}
+
 @supports (backdrop-filter: blur(15px)) {
   body:has(.MuiAppBar-root) .MuiAppBar-root,
   body:has(.MuiAppBar-root) .MuiDrawer-paper,
@@ -1760,35 +1725,51 @@ body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root.Mui-selected:hover {
   color: rgb(var(--darkest)) !important;
 }
 
-/* ---------- 2. Simple glass under library selector (left) ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2)::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 2.35rem;
-  width: 11.6rem;
-  max-width: 40vw;
-  background: rgba(var(--white), 0.13);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(var(--white), 0.12);
-  border-radius: var(--rounding-circle);
-  box-shadow: 0 2px 12px rgba(var(--darkest), 0.18);
-  pointer-events: none;
-  z-index: 0;
+/* ---------- 2. Library page second toolbar – clean glass bar ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) {
+  background: rgba(var(--darkest), 0.35) !important;
+  backdrop-filter: blur(18px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  border: 1px solid rgba(var(--white), 0.08) !important;
+  border-radius: var(--rounding-circle) !important;
+  margin: 0.5em 1em 0.35em !important;
+  width: calc(100% - 2em) !important;
+  min-height: 48px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  gap: 10px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 14px rgba(var(--darkest), 0.2) !important;
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) > * {
-  position: relative;
-  z-index: 1;
+/* Library selector (Movies / Shows etc.) – soft glass pill met vloeiende transitie */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type,
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) [role="button"]:first-of-type {
+  background: rgba(var(--white), 0.12) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: var(--rounding-circle) !important;
+  color: rgba(var(--white), 0.95) !important;
+  padding: 0.4em 0.9em !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding-left: -40px !important;
+  /* FIX: Zorgt voor een vloeiende overgang wanneer de muis de knop verlaat */
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Count chip on the glass */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type:hover {
+  background: rgba(var(--accent), 0.28) !important;
+  border-color: rgba(var(--accent), 0.25) !important;
+  /* FIX: Optionele subtiele glow die vloeiend mee animeert op de hover */
+  box-shadow: 0 0 12px rgba(var(--accent), 0.15) !important;
+}
+
+/* Count chip */
 body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiChip-root {
-  background: rgba(var(--white), 0.14) !important;
-  border: 1px solid rgba(var(--white), 0.15) !important;
+  background: rgba(var(--white), 0.12) !important;
+  border: 1px solid rgba(var(--white), 0.14) !important;
   border-radius: var(--rounding-circle) !important;
   color: rgba(var(--white), 0.95) !important;
   height: auto !important;
@@ -1798,96 +1779,252 @@ body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiCh
   padding: 0.18em 0.7em !important;
 }
 
-/* ---------- 3. Play All pill ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButton-contained:not(.MuiButtonGroup-grouped) {
-  background: linear-gradient(
-    135deg,
-    rgba(var(--accent), 0.92),
-    rgba(var(--accent), 0.72)
-  ) !important;
-  color: rgba(var(--darkest), 1) !important;
-  border: none !important;
+
+
+
+
+
+
+
+
+/* ---------- 3. Play All / Shuffle pill ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  background: rgba(var(--accent), 0.22) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(var(--accent), 0.35) !important;
   border-radius: var(--rounding-circle) !important;
-  box-shadow:
-    0 4px 14px rgba(var(--accent), 0.28),
-    0 0 18px rgba(var(--accent), 0.12) !important;
-  font-weight: 600 !important;
+  box-shadow: 
+    0 4px 14px rgba(0, 0, 0, 0.25),
+    0 0 10px rgba(var(--accent), 0.1) !important;
   text-transform: none !important;
-  transition: background 0.2s ease, box-shadow 0.2s ease !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  height: 40px !important;
+  /* Locked size – never collapses */
+  min-width: 148px !important;
+  transition: background 0.25s ease, box-shadow 0.25s ease !important;
 }
 
+/* Base button styles */
 body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained {
-  background: transparent !important;
-  color: rgba(var(--darkest), 1) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  height: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
   box-shadow: none !important;
+  border: none !important;
   border-radius: 0 !important;
+  transition: 
+    background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease,
+    opacity 0.2s ease !important;
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:hover,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButton-contained:not(.MuiButtonGroup-grouped):hover {
-  background: linear-gradient(
-    135deg,
-    rgba(var(--accent), 1),
-    rgba(var(--accent), 0.85)
-  ) !important;
+/* Play All button – the pill that slides */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton {
+  background-color: rgba(var(--accent), 0.45) !important;
+  border-radius: var(--rounding-circle) !important;
+  padding: 0 1.1em 0 1.3em !important;
+  flex: 1 1 auto !important;
+}
+
+/* Slightly tighter when hovering Play All itself */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton:hover {
+  padding: 0 0.9em 0 1.1em !important;
+}
+
+/* Shuffle button stays clear */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 1.1em !important;
+  flex: 0 0 auto !important;
+}
+
+/* White text & icons */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained * {
+  color: rgba(var(--white), 1) !important;
+  fill: rgba(var(--white), 1) !important;
+  opacity: 1 !important;
+}
+
+/* ========== SLIDE THE PILL + SWAP LABEL ========== */
+
+/* Move the Play All pill under Shuffle and hide its text */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton {
+  transform: translateX(40px) !important; 
+  /* FIX: Dropped from 20px to 17px to make the colored background circle a cleaner ~90% size */
+  clip-path: circle(18px at calc(100% - 20px)) !important; 
+  -webkit-clip-path: circle(18px at calc(100% - 20px)) !important;
+  color: transparent !important;
+}
+
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton * {
+  color: transparent !important;
+  fill: transparent !important;
+  opacity: 0 !important;
+}
+
+/* Show “Shuffle” text in the original Play All position */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover)::after {
+  content: "Shuffle" !important;
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: rgba(var(--white), 1) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  animation: fadeInLabel 0.25s ease forwards !important;
+}
+
+@keyframes fadeInLabel {
+  from { opacity: 0; transform: translateY(-50%) translateX(-6px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* Make Shuffle icon a clean circle – FIXED: Keeps sizes identical at all times to stop the icon shifting */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+}
+
+/* Outer pill stronger on hover */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:hover {
+  background: rgba(var(--accent), 0.28) !important;
   box-shadow:
-    0 5px 16px rgba(var(--accent), 0.35),
-    0 0 22px rgba(var(--accent), 0.16) !important;
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(var(--accent), 0.2) !important;
 }
 
-/* ---------- 4. Right-side icon group (Filter / A-Z / View) ---------- */
+/* Kill MUI ripples */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::before,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::after,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root * {
+  display: none !important;
+  content: none !important;
+}
+
+
+
+
+
+
+
+
+/* ---------- Background Right-side icon group (Filter / A-Z / View) ---------- */
 body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
-  background: rgba(var(--white), 0.09) !important;
+  background: rgba(var(--white), 0.10) !important;
   backdrop-filter: blur(14px) saturate(130%);
   -webkit-backdrop-filter: blur(14px) saturate(130%);
-  border: 1px solid rgba(var(--white), 0.11) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
   border-radius: var(--rounding-circle) !important;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(var(--darkest), 0.18);
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root {
-  color: rgba(var(--white), 0.92) !important;
-  border-radius: 0 !important;
-  min-width: 2.5rem !important;
-  transition: background 0.18s ease, color 0.18s ease !important;
-}
-
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:hover {
-  background: rgba(var(--accent), 0.28) !important;
-  color: rgb(var(--accent)) !important;
-}
-
-/* ---------- 5. Next / Previous – soft glass circles ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiIconButton-root {
-  position: relative;
-  color: rgba(var(--white), 0.92) !important;
-  border-radius: 50% !important;
+/* ---------- Filter / Next / Previous – soft glass circles ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
   background: transparent !important;
-  z-index: 1;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  gap: 6px !important; /* Separates the icons cleanly */
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiIconButton-root::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: rgba(var(--white), 0.08);
-  border: 1px solid rgba(var(--white), 0.10);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(var(--darkest), 0.15);
-  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  z-index: -1;
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root {
+  position: relative !important;
+  background: rgba(var(--white), 0.10) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: 50% !important; 
+  width: 40px !important;
+  height: 40px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiIconButton-root:hover {
+/* Refined Hover State – Circular Glow */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:hover {
+  background: rgba(var(--accent), 0.35) !important;
   color: rgb(var(--accent)) !important;
+  border-color: rgba(var(--accent), 0.4) !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(var(--accent), 0.2) !important;
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiIconButton-root:hover::before {
-  background: rgba(var(--accent), 0.30);
-  border-color: rgba(var(--accent), 0.22);
-  box-shadow: 0 3px 12px rgba(var(--accent), 0.20);
+/* 4. Snappy Active State – Tactile Click compression */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:active {
+  transform: scale(0.92) !important;
+  background: rgba(var(--accent), 0.5) !important;
+}
+
+/* Force the internal Material UI touch ripple effect to respect the new circular boundary */
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* ============================================================
+   SPECTRAFIN – Force Circular Sizing on Selected/Hover Effects
+   ============================================================ */
+
+/* Force all underlying structural highlight layers to be perfect circular shapes */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::before,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::after,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root *,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="TouchRipple"],
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVisible"] {
+  border-radius: 50% !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
+
+/* Constrain any expanding wave effects safely within the strict circular border mask */
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
+  overflow: hidden !important;
+}
+
+
+/* ============================================================
+   SPECTRAFIN – Force Circular Sizing on Selected/Hover Effects
+   ============================================================ */
+
+/* Force all underlying structural highlight layers to be perfect circular shapes */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::before,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::after,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root *,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="TouchRipple"],
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVisible"] {
+  border-radius: 50% !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
+
+/* Constrain any expanding wave effects safely within the strict circular border mask */
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
+  overflow: hidden !important;
 }
