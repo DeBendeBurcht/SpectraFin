@@ -166,9 +166,10 @@ button.emby-tab-button:nth-child(3) {
   background-color: rgba(var(--white), 0.2);
 }
 
-/* ---------- Floating progress bar ---------- */
+/* ---------- Posters  and animations, beautifull interactions before dropping into media ---------- */
+/* ---------- Floating Progress Bar ---------- */
 .itemProgressBar {
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
   background: rgba(var(--white-off), 0.35) !important;
   height: 10px;
   border-radius: 30px;
@@ -179,12 +180,142 @@ button.emby-tab-button:nth-child(3) {
   transition: width 0.4s ease-in-out;
 }
 .innerCardFooter {
-  width: calc(100% - 24px);
+  width: calc(100% - 16px);
   margin: 0 auto;
   position: absolute;
-  bottom: 12px;
+  bottom: 6px;
   box-shadow: 1px 1px 5px rgba(var(--dark), 0.25);
 }
+
+/* ---------- Tight-Corner Floating Buttons ---------- */
+.cardOverlayButton-br {
+  position: absolute !important;
+  top: 8px !important;     
+  right: 8px !important;   
+  bottom: auto !important; 
+  left: auto !important;
+  z-index: 10 !important;
+  display: flex !important;
+  flex-direction: column !important; 
+  gap: 6px !important;     
+}
+.cardOverlayButton-br .cardOverlayButton {
+  width: 28px !important;  
+  height: 28px !important; 
+  background: rgba(var(--white-off), 0.35) !important;
+  backdrop-filter: blur(2px) !important;
+  border: 1px solid rgba(var(--white), 0.1) !important;
+  border-radius: var(--rounding-circle) !important;
+  box-shadow: 1px 1px 4px rgba(var(--dark), 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+  transform: scale(1.15) !important; 
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease !important;
+}
+.cardOverlayButton-br .cardOverlayButton:hover {
+  transform: scale(1.1) !important;
+  background: rgba(var(--accent), 0.35) !important;
+  border-color: rgba(var(--accent), 0.3) !important;
+}
+.cardOverlayButton-br .cardOverlayButtonIcon {
+  font-size: 0.85rem !important; 
+}
+
+/* ---------- Cinematic Faded-Curve Diagonal Glint ---------- */
+.cardScalable {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 12px !important; 
+  mask-image: linear-gradient(to bottom, black, black) !important; 
+  transition: filter 0.6s ease !important;
+}
+/* Effect Layer 1: Enhanced Sharp Beam (Prominent White Exposure) */
+.cardScalable::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+  opacity: 0;
+  mix-blend-mode: overlay !important;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 35%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0.05) 65%, rgba(255, 255, 255, 0) 100%) !important;
+  background-size: 300% 100% !important;
+  background-position: 160% 0% !important;
+}
+/* Layer 2: Deep Volumetric Trail (Prominent Secondary Dispersion) */
+.cardScalable::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  opacity: 0;
+  mix-blend-mode: screen !important;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.08) 80%, rgba(255, 255, 255, 0) 100%) !important;
+  background-size: 300% 100% !important;
+  background-position: 160% 0% !important;
+}
+/* Hover Sweep Execution with 5% Brightness + 10% Saturation Uplift */
+.cardBox:hover .cardScalable {
+  filter: brightness(1.08) contrast(1.14) saturate(1.16) hue-rotate(-2deg) opacity(0.96) !important;
+}
+.cardBox:hover .cardScalable::after {
+  opacity: 1 !important;
+  background-position: -60% 0% !important;
+  transition: background-position .95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+}
+.cardBox:hover .cardScalable::before {
+  opacity: 1 !important;
+  background-position: -60% 0% !important;
+  transition: background-position 1.05s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease !important;
+}
+
+/* ---------- UI Cleanups & Native Transitions ---------- */
+.cardBox:hover .cardOverlayContainer {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+.cardIndicators, .playedIndicator, .countIndicator {
+  transition: opacity 0.25s ease, filter 0.25s ease !important;
+  opacity: 1;
+  filter: blur(0px);
+}
+.card:hover .cardIndicators, .card:hover .playedIndicator, .card:hover .countIndicator, .cardBox:hover .cardIndicators {
+  opacity: 0 !important;
+  filter: blur(4px) !important;
+  pointer-events: none !important; 
+}
+
+
+/* ---------- HOVER SEPARATOR: Blurs & fades the native indicator background ---------- */
+/* Setup a smooth transition for the native top-right indicators */
+.cardIndicators,
+.playedIndicator,
+.countIndicator {
+  transition: opacity 0.25s ease, filter 0.25s ease !important;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* The moment the card box is hovered, smoothly clear the static assets out of the way */
+.card:hover .cardIndicators,
+.card:hover .playedIndicator,
+.card:hover .countIndicator,
+.cardBox:hover .cardIndicators {
+  opacity: 0 !important;
+  filter: blur(4px) !important;
+  pointer-events: none !important; /* Prevents hitting invisible legacy hitboxes */
+}
+
+
+
+
+
+
 
 /* ---------- Custom scrollbars ---------- */
 ::-webkit-scrollbar-thumb {
@@ -1051,7 +1182,6 @@ body:has(.MuiAppBar-root) .MuiIconButton-root:hover {
   color: rgb(var(--darkest)) !important;
   border-radius: var(--rounding-circle) !important;
 }
-
 
 
 /* ---------- Glass material behind top navigation bar Navigations ---------- */
@@ -1929,6 +2059,7 @@ body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRip
 
 
 
+
 /* ---------- Background Right-side icon group (Filter / A-Z / View) ---------- */
 body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
   background: rgba(var(--white), 0.10) !important;
@@ -2028,3 +2159,39 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVis
 body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
   overflow: hidden !important;
 }
+
+
+/* Music bar — only when actually visible */
+.layout-desktop .appfooter:has(.nowPlayingBar:not(.hide)) {
+  left: 1.25em !important;
+  right: 1.25em !important;
+  bottom: 1.1em !important;
+  width: auto !important;
+  background: rgba(var(--darkest), 0.52) !important;
+  backdrop-filter: blur(28px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: var(--rounding-large) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.42), 0 0 24px rgba(var(--accent), 0.10) !important;
+}
+.layout-desktop body:has(.nowPlayingBar:not(.hide)) .padded-bottom-page {
+  padding-bottom: 7.5em !important;
+}
+
+
+/* 5. Search page field */
+.searchFields .searchFieldsInner {
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.28), rgba(var(--white-off), 0.15));
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.10) !important;
+    border-radius: var(--rounding-circle) !important;
+    box-shadow: 0 8px 28px rgba(var(--darkest), 0.28) !important;
+    padding: 0.5em 1.5em !important; /* Increased horizontal padding for look */
+    
+    /* Centering logic */
+    max-width: 46rem;
+    margin: 20px auto 0 auto !important; /* Uses auto margins to center horizontally */
+}
+
+
