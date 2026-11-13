@@ -2381,7 +2381,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
    Fix: Seasons size = Cast size | Restore logo | Move poster down
    ============================================================ */
 
-/* ---------- 0. Page centering & kill old 4.1 conflicts ---------- */
+/* ---------- Page centering & kill old 4.1 Media Info Page conflicts ---------- */
 .layout-desktop #itemDetailPage .detailPageWrapperContainer {
   margin-top: 0 !important;
   margin-left: auto !important;
@@ -2406,7 +2406,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
   margin-top: 0 !important;
 }
 
-/* ---------- 1. Media Blocks ---------- */
+/* ---------- Media Info Blocks ---------- */
 .layout-desktop #itemDetailPage .detailPagePrimaryContainer {
   display: grid !important;
   grid-template-columns: 360px minmax(0, 1fr) !important;
@@ -2418,6 +2418,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
 }
 
 /* ---------- Poster – position, size & styling ---------- */
+/* Force poster location */
 .layout-desktop #itemDetailPage .detailImageContainer.hide-mobile {
   grid-column: 1 !important;              /* Places poster in left column (column 1) */
   
@@ -2429,7 +2430,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
   z-index: 5 !important;                  /* Keeps poster above backdrop layers */
 }
 
-/* Force the actual poster card size, shape, border & shadow */
+/* Force poster size */
 .layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .card,
 .layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .cardBox,
 .layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .cardScalable {
@@ -2440,7 +2441,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
   aspect-ratio: 2 / 3 !important;         /* Standard poster proportion (280x420). Use 2 / 3.2 for taller */
 }
 
-/* ---------- 2. Right side ---------- */
+/* ---------- Right Info Column ---------- */
 .layout-desktop #itemDetailPage .detailRibbon {
   grid-column: 2 !important;
   grid-row: 1 !important;
@@ -2473,7 +2474,7 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
   min-width: 38em !important;
 }
 
-/* ---------- 3. SEASONS – exact size match to Cast & Crew ---------- */
+/* ---------- Seasons – match to Cast & Crew ---------- */
 .layout-desktop #itemDetailPage #listChildrenCollapsible {
   grid-column: 1 / -1 !important;
   grid-row: 4 !important;
@@ -2485,38 +2486,111 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
 
 
 /* ---------- 4. Buttons ---------- */
+/* ---------- 4. Buttons ---------- */
 
-
-/* ---------- 5. Divider (kept) ---------- */
-.layout-desktop #itemDetailPage #castCollapsible {
+/* --- A. BUTTON ROW CONTAINER (Positioning, Alignment & Layout) --- */
+.layout-desktop #itemDetailPage .mainDetailButtons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
   position: relative !important;
-  margin-top: 1.2rem !important;
-  padding-top: 1.8rem !important;
 }
 
-.layout-desktop #itemDetailPage #castCollapsible::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0.3rem !important;
-  left: 0 !important;
-  right: 2.8rem !important;
-  height: 2px !important;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(var(--accent), 0.22) 7%,
-    rgba(var(--accent), 0.95) 50%,
-    rgba(var(--accent), 0.22) 93%,
-    transparent 100%
-  ) !important;
-  box-shadow:
-    0 0 14px 3px rgba(var(--accent), 0.55),
-    0 0 32px 6px rgba(var(--accent), 0.28),
-    0 0 55px 10px rgba(var(--accent), 0.12) !important;
-  border-radius: 4px !important;
-  pointer-events: none !important;
-  z-index: 5 !important;
+/* --- B. INDIVIDUAL BUTTON SIZING & SHAPE (Applies to Play, Trailer, Watched, etc.) --- */
+.layout-desktop #itemDetailPage .mainDetailButtons .detailButton {
+  display: inline-flex !important;        /* Aligns button icon and text label side-by-side */
+  flex-direction: row !important;         /* Icon + Text layout: row (horizontal) | column (icon stacked above text) */
+  align-items: center !important;         /* Centers icon and label vertically */
+  justify-content: center !important;     /* Centers icon and label horizontally */
+  gap: 0.45rem !important;                /* Space between the button icon and text label */
+
+  height: 44px !important;                /* Uniform button height (try 38px to 50px) */
+  min-width: auto !important;             /* Minimum width (set e.g. 110px for uniform button widths) */
+  padding: 0 1.15rem !important;          /* Left/Right inner padding around text */
+  margin: 0 !important;                   /* Removes Jellyfin's default uneven button margins */
+  border-radius: 10px !important;         /* Corner roundness (use 999px for full pill buttons) */
+  font-size: 0.95rem !important;          /* Button label text size */
+  font-weight: 600 !important;            /* Button label thickness */
+  transition: transform 0.15s ease, background 0.15s ease !important; /* Smooth hover animation */
 }
+
+/* Restore icons inside standard Jellyfin buttons (Trailer, Watched, Favorites, More) */
+.layout-desktop #itemDetailPage .mainDetailButtons .detailButton .material-icons {
+  display: inline-flex !important;        /* Unhides the icons hidden by your base theme */
+  font-size: 1.15rem !important;          /* Icon size next to button label */
+}
+
+/* --- C. PRIMARY PLAY / RESUME BUTTON HIGHLIGHT --- */
+.layout-desktop #itemDetailPage .mainDetailButtons .btnPlay,
+.layout-desktop #itemDetailPage .mainDetailButtons .btnResume {
+  order: 1 !important;                    /* Keeps Play / Resume first in line (change 1–6 to reorder) */
+  padding: 0 1.6rem !important;           /* Makes Play button slightly wider than secondary buttons */
+  background: rgba(var(--accent), 0.9) !important;
+}
+
+/* --- D. BUTTON ORDERING (Change numbers 1–6 to rearrange button sequence) --- */
+.layout-desktop #itemDetailPage .mainDetailButtons .btnPlayTrailer {
+  order: 2 !important;                    /* Trailer button position */
+}
+
+.layout-desktop #itemDetailPage .mainDetailButtons .btnPlaystate,
+.layout-desktop #itemDetailPage .mainDetailButtons .btnPlayed {
+  order: 3 !important;                    /* Watched checkmark button position */
+}
+
+.layout-desktop #itemDetailPage .mainDetailButtons .btnUserRating {
+  order: 4 !important;                    /* Add to Favorites heart button position */
+}
+
+.layout-desktop #itemDetailPage .mainDetailButtons .btnMoreCommands {
+  order: 5 !important;                    /* Three-dots "More" button position */
+}
+
+/* --- E. HIDE DUPLICATE ENHANCED PLAY & STYLE SMALLER ENHANCED ICONS --- */
+/* Hides the extra plain "Play" button added by Jellyfin Enhanced */
+.layout-desktop #itemDetailPage .mainDetailButtons > button:first-child:not(.btnPlay):not(.btnResume) {
+  display: none !important;
+}
+
+/* --- E. ENHANCED ICONS POSITION & SIZE CONTROLS --- */
+.layout-desktop #itemDetailPage .mainDetailButtons > :not(.btnPlay):not(.btnResume):not(.btnPlayTrailer):not(.btnPlaystate):not(.btnPlayed):not(.btnUserRating):not(.btnMoreCommands) {
+  order: 10 !important;                   /* Keeps Enhanced buttons on the second line */
+
+  /* NUDGE CONTROLS (Adjust these to move the entire Enhanced icon bar) */
+  position: relative !important;          /* Enables top/left nudging without breaking the top row */
+  top: 102px !important;                  /* Vertical nudge (moves icon row under the summary box) */
+  left: 250px !important;                   /* Horizontal nudge */
+
+  /* SIZE CONTROLS */
+  height: 34px !important;                /* Clean button height */
+  min-width: 34px !important;             /* Compact square icon size */
+  padding: 0 0.65rem !important;          /* Inner padding */
+  font-size: 0.85rem !important;          /* Icon size */
+  border-radius: 8px !important;          /* Corner roundness */
+}
+
+/* Forces a full-width invisible break after More (order: 5) so Enhanced icons NEVER jump to Row 1 */
+.layout-desktop #itemDetailPage .mainDetailButtons::after {
+  content: "" !important;
+  flex-basis: 100% !important;
+  width: 100% !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  order: 6 !important;
+}
+
+/* Hides ONLY the extra Jellyfin Enhanced Replay/Play-All button (keeps your green Play button safe) */
+.layout-desktop #itemDetailPage .mainDetailButtons .btnReplay,
+.layout-desktop #itemDetailPage .mainDetailButtons .btnPlayAll,
+.layout-desktop #itemDetailPage .mainDetailButtons [title*="Replay"],
+.layout-desktop #itemDetailPage .mainDetailButtons [title*="Restart"],
+.layout-desktop #itemDetailPage .mainDetailButtons [title*="Play All"] {
+  display: none !important;
+}
+
+
 
 
 /* ---------- 6. Restore the series title logo ---------- */
@@ -2545,4 +2619,50 @@ body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-r
   min-height: 40px !important;
   max-height: 0px !important;
 }
+
+
+/* ---------- 8. Ratings ---------- */
+
+/* Placement */
+.layout-desktop #itemDetailPage .itemMiscInfo-primary {
+ gap: 0.75rem !important;                /* Space between Year, NL-16 badge, and Star rating */
+  width: max-content !important;          /* Prevents narrow columns from squeezing the horizontal row */
+  position: relative !important;          /* Enables top/left nudging without breaking surrounding elements */
+  top: 110px !important;                    /* Vertical nudge (use negative like -10px to move up, positive to move down) */
+  left: 20px !important;                   /* Horizontal nudge (use negative to move left, positive to move right) */
+  margin: 0 0 0.9rem 0 !important;        /* Outer margin: Top Right Bottom Left */
+}
+
+/* --- B. TEXT SIZE, COLOR & WEIGHT (2014 - 2020, Runtime, etc.) --- */
+.layout-desktop #itemDetailPage .itemMiscInfo-primary .mediaInfoItem {
+  font-size: 1.05rem !important;          /* Text size (try 0.85rem to 1.15rem) */
+  font-weight: 600 !important;            /* Font thickness: 400 (normal), 600 (semi-bold), 700 (bold) */
+  color: rgba(255, 255, 255, 0.88) !important; /* Text brightness & color */
+  margin: 0 !important;                   /* Removes Jellyfin's default uneven right margins so 'gap' controls spacing */
+}
+
+/* Age rating badge */
+.layout-desktop #itemDetailPage .itemMiscInfo-primary .mediaInfoOfficialRating {
+  font-size: 0.85rem !important;          /* Badge text size */
+  font-weight: 700 !important;            /* Bold text inside badge */
+  color: #ffffff !important;              /* Badge text color */
+  background: rgba(var(--accent), 0.22) !important; /* Tinted background matching your theme accent */
+  border: 1.5px solid rgba(var(--accent), 0.65) !important; /* Crisp accent border around NL-16 */
+  border-radius: 6px !important;          /* Corner roundness of the rating box */
+  padding: 0.15rem 0.5rem !important;     /* Inner padding: Top/Bottom Left/Right */
+  line-height: 1.2 !important;            /* Keeps badge height compact */
+}
+
+/* Community Stars */
+.layout-desktop #itemDetailPage .itemMiscInfo-primary .starRatingContainer {
+  align-items: center !important;
+  font-weight: 700 !important;            /* Rating number thickness */
+  color: #ffffff !important;              /* Rating number color */
+}
+
+.layout-desktop #itemDetailPage .itemMiscInfo-primary .starIcon {
+  color: #f5c518 !important;              /* IMDb-style gold star (or use rgba(var(--accent), 1) for theme green) */
+  font-size: 1.4rem !important;          /* Star icon size */
+}
+
 
