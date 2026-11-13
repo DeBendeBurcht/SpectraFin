@@ -1,12 +1,25 @@
 /* ============================================================
-   SPECTRAFIN – Consolidated Theme
-   Structure:
-   1. Imports / Icons / Typefaces
-   2. General Settings & Variables
-   3. General Functions & Features
-   4. Desktop Specific
-   5. Mobile Specific
-   6. TV Specific
+   SPECTRAFIN – Consolidated Theme (ordered / deduped)
+   ------------------------------------------------------------
+   Structure (search these banners while coding):
+
+   1. IMPORTS / ICONS / TYPEFACES
+   2. GENERAL SETTINGS & VARIABLES
+   3. GENERAL FUNCTIONS & FEATURES
+      3.1  Backdrop, cards, progress, overlays, glints
+      3.2  Scrollbars, rounding, indicators, focus, forms
+      3.3  Glass, dialogs, header, home library, logo, login
+      3.4  Media player / OSD / sliders
+      3.5  Sidebar, detail typography, dashboard / prefs
+      3.6  JF12 modern AppBar / menus / library toolbar
+      3.7  Search page
+   4. DESKTOP SPECIFIC
+      4.1  Item detail / media page (poster, actions, panels)
+      4.2  Cast, scenes, header sizing, aesthetics
+      4.3  Now-playing music bar
+   5. MOBILE SPECIFIC
+   6. TV SPECIFIC
+   7. DEVELOPMENT
    ============================================================ */
 
 
@@ -60,9 +73,14 @@ body, h1, h2, h3, h4 {
 
 /* ============================================================
    3. GENERAL FUNCTIONS & FEATURES
+   ------------------------------------------------------------
+   Shared rules used across layouts (desktop / mobile / TV).
    ============================================================ */
 
-/* ---------- Backdrop image treatment ---------- */
+/* ------------------------------------------------------------
+   3.1  Backdrop, cards, progress, overlays, glints
+   ------------------------------------------------------------ */
+/* Backdrop image treatment */
 .backdropImage {
   filter: blur(6px) saturate(120%) contrast(120%) brightness(40%);
 }
@@ -190,18 +208,18 @@ button.emby-tab-button:nth-child(3) {
 /* ---------- Tight-Corner Floating Buttons ---------- */
 .cardOverlayButton-br {
   position: absolute !important;
-  top: 8px !important;     
-  right: 8px !important;   
-  bottom: auto !important; 
+  top: 8px !important;
+  right: 8px !important;
+  bottom: auto !important;
   left: auto !important;
   z-index: 10 !important;
   display: flex !important;
-  flex-direction: column !important; 
-  gap: 6px !important;     
+  flex-direction: column !important;
+  gap: 6px !important;
 }
 .cardOverlayButton-br .cardOverlayButton {
-  width: 28px !important;  
-  height: 28px !important; 
+  width: 28px !important;
+  height: 28px !important;
   background: rgba(var(--white-off), 0.35) !important;
   backdrop-filter: blur(2px) !important;
   border: 1px solid rgba(var(--white), 0.1) !important;
@@ -212,7 +230,7 @@ button.emby-tab-button:nth-child(3) {
   justify-content: center !important;
   margin: 0 !important;
   font-size: 0.9rem !important;
-  transform: scale(1.15) !important; 
+  transform: scale(1.15) !important;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease !important;
 }
 .cardOverlayButton-br .cardOverlayButton:hover {
@@ -221,15 +239,15 @@ button.emby-tab-button:nth-child(3) {
   border-color: rgba(var(--accent), 0.3) !important;
 }
 .cardOverlayButton-br .cardOverlayButtonIcon {
-  font-size: 0.85rem !important; 
+  font-size: 0.85rem !important;
 }
 
 /* ---------- Cinematic Faded-Curve Diagonal Glint ---------- */
 .cardScalable {
   position: relative !important;
   overflow: hidden !important;
-  border-radius: 12px !important; 
-  mask-image: linear-gradient(to bottom, black, black) !important; 
+  border-radius: 12px !important;
+  mask-image: linear-gradient(to bottom, black, black) !important;
   transition: filter 0.6s ease !important;
 }
 /* Effect Layer 1: Enhanced Sharp Beam (Prominent White Exposure) */
@@ -287,37 +305,14 @@ button.emby-tab-button:nth-child(3) {
 .card:hover .cardIndicators, .card:hover .playedIndicator, .card:hover .countIndicator, .cardBox:hover .cardIndicators {
   opacity: 0 !important;
   filter: blur(4px) !important;
-  pointer-events: none !important; 
+  pointer-events: none !important;
 }
 
 
-/* ---------- HOVER SEPARATOR: Blurs & fades the native indicator background ---------- */
-/* Setup a smooth transition for the native top-right indicators */
-.cardIndicators,
-.playedIndicator,
-.countIndicator {
-  transition: opacity 0.25s ease, filter 0.25s ease !important;
-  opacity: 1;
-  filter: blur(0px);
-}
-
-/* The moment the card box is hovered, smoothly clear the static assets out of the way */
-.card:hover .cardIndicators,
-.card:hover .playedIndicator,
-.card:hover .countIndicator,
-.cardBox:hover .cardIndicators {
-  opacity: 0 !important;
-  filter: blur(4px) !important;
-  pointer-events: none !important; /* Prevents hitting invisible legacy hitboxes */
-}
-
-
-
-
-
-
-
-/* ---------- Custom scrollbars ---------- */
+/* ------------------------------------------------------------
+   3.2  Scrollbars, rounding, indicators, focus, forms
+   ------------------------------------------------------------ */
+/* Custom scrollbars */
 ::-webkit-scrollbar-thumb {
   background: rgba(var(--accent), 0.8) !important;
 }
@@ -588,7 +583,10 @@ a[data-role="button"] {
   background-color: transparent !important;
 }
 
-/* ---------- Soft matte glass + glow for home library buttons (My Media) ---------- */
+/* ------------------------------------------------------------
+   3.3  Glass, dialogs, header, home library, logo, login
+   ------------------------------------------------------------ */
+/* Soft matte glass + glow for home library buttons (My Media) */
 #indexPage .homeLibraryButton,
 .homeLibraryButton {
   background: rgba(var(--white), 0.32) !important;
@@ -622,14 +620,14 @@ a[data-role="button"] {
 #indexPage .homeLibraryButton:active,
 .homeLibraryButton:active {
   /* Zorgt dat de knop terug naar beneden veert en licht inkrimpt */
-  transform: translateY(0) scale(0.85) !important; 
-  
+  transform: translateY(0) scale(0.85) !important;
+
   /* Snappier dan de 0.25s hover transitie voor directe fysieke feedback */
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease !important; 
-  
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease !important;
+
   /* Maakt de achtergrond iets donkerder/intenser tijdens de klik */
-  background: rgba(var(--accent), 0.45) !important; 
-  
+  background: rgba(var(--accent), 0.45) !important;
+
   /* Temt de gloed en brengt de schaduw strakker onder de knop */
   box-shadow:
     0 2px 10px rgba(var(--accent), 0.22),
@@ -707,7 +705,6 @@ imgLogoIcon,
 }
 
 
-
 /* ---------- Logo pulse glow animation ---------- */
 .pageTitleWithLogo {
   animation: pulse-glow 6.9s infinite;
@@ -722,7 +719,10 @@ imgLogoIcon,
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
 }
 
-/* ---------- Media player volume slider (rotated) ---------- */
+/* ------------------------------------------------------------
+   3.4  Media player / OSD / sliders
+   ------------------------------------------------------------ */
+/* Media player volume slider (rotated) */
 .osdVolumeSliderContainer {
   flex-grow: 1;
   min-width: 3em;
@@ -819,7 +819,6 @@ imgLogoIcon,
 }
 
 
-
 /* ---------- Slider thumb styling ---------- */
 .mdl-slider::-moz-range-thumb,
 .mdl-slider::-webkit-slider-thumb {
@@ -899,7 +898,10 @@ progress::-webkit-progress-value,
   box-shadow: 0 4px 12px rgba(var(--darkest), 0.2);
 }
 
-/* ---------- Sidebar navigation buttons ---------- */
+/* ------------------------------------------------------------
+   3.5  Sidebar, detail typography, dashboard / prefs
+   ------------------------------------------------------------ */
+/* Sidebar navigation buttons */
 .navMenuOption,
 .navMenuOption:hover,
 .navMenuOption-selected {
@@ -932,22 +934,59 @@ a.overview-expand.emby-button {
   font-size: 110%;
 }
 .detailSectionContent .tagline {
-  font-weight: bold;
-  font-size: 125% !important;
-  margin-bottom: 0.3vh;
+  font-weight: 600;
+  font-size: 1.15em !important;
+  margin-bottom: 0.5em;
+  line-height: 1.35;
+  opacity: 0.96;
 }
 #itemDetailPage .tagline {
-  border-left: 0.25em solid rgb(var(--white));
-  padding: 0 0.5em;
+  border-left: 0.22em solid rgb(var(--accent));
+  padding: 0.1em 0 0.1em 0.7em;
 }
 .detailSectionContent .detail-clamp-text,
 .detailSectionContent .overview {
-  font-weight: bold;
-  font-size: 125% !important;
-  margin-top: 0.4em;
+  font-weight: 400;
+  font-size: 1.02em !important;
+  line-height: 1.55;
+  margin-top: 0.35em;
+  max-width: 48ch;
+  opacity: 0.9;
 }
 .infoWrapper {
-  margin-bottom: 3vh;
+  margin-bottom: 1.5vh;
+}
+
+/* Media info under the action row */
+#itemDetailPage .itemMiscInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.85em;
+  margin: 0.45em 0 0.75em;
+  opacity: 0.78;
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+}
+#itemDetailPage .mediaInfoItem {
+  opacity: 0.9;
+}
+
+/* Info panel label/value contrast */
+.layout-desktop .itemDetailsGroup .label {
+  opacity: 0.65;
+  font-weight: 500;
+  min-width: 5.5em;
+}
+.layout-desktop .itemDetailsGroup .content a,
+.layout-desktop .itemDetailsGroup .content {
+  color: rgba(var(--white), 0.95);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-desktop .btnPlay {
+    animation: none !important;
+  }
 }
 
 /* ---------- Dashboard & settings panels ---------- */
@@ -1067,8 +1106,8 @@ a.overview-expand.emby-button {
   border-color: rgba(var(--accent), 0.8) !important;
   color: rgba(var(--white), 1) !important;
   transform: translateY(-2px) scale(1) !important;
-  box-shadow: 
-    0 8px 24px rgba(var(--accent), 0.3), 
+  box-shadow:
+    0 8px 24px rgba(var(--accent), 0.3),
     0 0 28px rgba(var(--accent), 0.15) !important;
 }
 
@@ -1081,8 +1120,8 @@ a.overview-expand.emby-button {
 #myPreferencesMenuPage .listItem:active {
   transform: translateY(0) scale(0.98) !important;
   background: rgba(var(--accent), 0.25) !important;
-  box-shadow: 
-    0 2px 10px rgba(var(--accent), 0.2), 
+  box-shadow:
+    0 2px 10px rgba(var(--accent), 0.2),
     0 0 12px rgba(var(--accent), 0.1) !important;
   transition: transform 0.1s ease, box-shadow 0.1s ease !important;
 }
@@ -1107,8 +1146,7 @@ a.overview-expand.emby-button {
 }
 
 
-
-/* ---------- Modern React / MUI palette bridge ---------- */
+/* Modern React / MUI palette bridge (pairs with 3.6 JF12 toolbar polish) */
 :root,
 :root[data-theme],
 [data-theme] {
@@ -1233,16 +1271,16 @@ body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):hover::before,
 }
 
 /* Shrinks the overall button slightly more when clicked */
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):active, 
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):active, 
+body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):active,
+body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):active,
 .emby-tab-button:not(.emby-tab-button-active):active {
     transform: scale(0.85) !important; /* Slightly smaller than the hover scale of 0.9 */
     transition: transform 0.1s ease !important; /* Snappier animation for the physical click */
 }
 
 /* Pulls the glass background further inward so it doesn't bleed into neighbors */
-body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):active::before, 
-body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):active::before, 
+body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected):active::before,
+body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):active::before,
 .emby-tab-button:not(.emby-tab-button-active):active::before {
     inset: 7px -5px !important; /* More restrictive than the hover inset of 5px -9px */
     box-shadow: 0 2px 10px rgba(var(--accent), 0.2) !important; /* Tames the glowing edge size */
@@ -1253,7 +1291,7 @@ body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected):active::before,
 body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected) .MuiTouchRipple-root,
 body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected) .MuiTouchRipple-root {
     /* Ties the ripple boundaries directly to the exact shape of your glass overlay */
-    inset: 5px -9px !important; 
+    inset: 5px -9px !important;
     border-radius: var(--rounding-circle) !important;
     overflow: hidden !important; /* Prevents the ripple from bleeding into neighbors */
 }
@@ -1263,7 +1301,6 @@ body:has(.MuiAppBar-root) .MuiButton-root:not(.Mui-selected) .MuiTouchRipple-chi
 body:has(.MuiAppBar-root) .MuiTab-root:not(.Mui-selected) .MuiTouchRipple-child {
     background-color: rgba(var(--white), 0.2) !important;
 }
-
 
 
 /* ---------- Header icon buttons (SyncPlay / Cast / Search) ---------- */
@@ -1315,8 +1352,8 @@ body:has(.MuiAppBar-root) .MuiIconButton-root:not(.headerUserButton):hover::befo
 }
 
 
-.paper-icon-button-light:hover, 
-body:has(.MuiAppBar-root) .MuiIconButton-root:not(.headerUserButton):hover { 
+.paper-icon-button-light:hover,
+body:has(.MuiAppBar-root) .MuiIconButton-root:not(.headerUserButton):hover {
 color: rgb(var(--accent)) !important;
 filter: brightness(1.1)  !important;
 }
@@ -1350,9 +1387,6 @@ body:has(.MuiAppBar-root) .MuiIconButton-root:not(.headerUserButton):active::bef
   /* Snelle transitie voor de achtergrondkrimp */
   transition: inset 0.1s ease, background 0.1s ease, box-shadow 0.1s ease !important;
 }
-
-
-
 
 
 /* ---------- Modern logo replacement ---------- */
@@ -1443,43 +1477,387 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
 }
 
 
+/* ------------------------------------------------------------
+   3.6  JF12 modern AppBar / menus / library toolbar
+   ------------------------------------------------------------ */
+
+/* ---------- 1. Strengthen existing menu glass ---------- */
+body:has(.MuiAppBar-root) .MuiMenu-paper,
+body:has(.MuiAppBar-root) .MuiPopover-paper {
+  background-color: rgba(var(--darkest), 0.78) !important;
+  backdrop-filter: blur(22px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+  border: 1px solid rgba(var(--white), 0.10) !important;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(var(--accent), 0.06) !important;
+  margin-top: 8px !important;                 /* slight downward nudge */
+}
+
+body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root {
+  margin: 2px 12px !important;
+  border-radius: var(--rounding-alt) !important;
+  padding: 0.5em 0.9em !important;
+}
+
+body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root.Mui-selected {
+  background-color: rgba(var(--accent), 0.38) !important;
+  color: rgba(var(--white), 0.98) !important;
+}
+
+body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root.Mui-selected:hover {
+  background-color: rgba(var(--accent), 0.58) !important;
+  color: rgb(var(--darkest)) !important;
+}
+
+/* ---------- 2. Library page second toolbar – clean glass bar ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) {
+  background: rgba(var(--darkest), 0.35) !important;
+  backdrop-filter: blur(18px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  border: 1px solid rgba(var(--white), 0.08) !important;
+  border-radius: var(--rounding-circle) !important;
+  margin: 0.5em 1em 0.35em !important;
+  width: calc(100% - 2em) !important;
+  min-height: 48px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  gap: 10px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 14px rgba(var(--darkest), 0.2) !important;
+}
+
+/* Library selector (Movies / Shows etc.) – soft glass pill met vloeiende transitie */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type,
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) [role="button"]:first-of-type {
+  background: rgba(var(--white), 0.12) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: var(--rounding-circle) !important;
+  color: rgba(var(--white), 0.95) !important;
+  padding: 0.4em 0.9em !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding-left: -40px !important;
+  /* FIX: Zorgt voor een vloeiende overgang wanneer de muis de knop verlaat */
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type:hover {
+  background: rgba(var(--accent), 0.28) !important;
+  border-color: rgba(var(--accent), 0.25) !important;
+  /* FIX: Optionele subtiele glow die vloeiend mee animeert op de hover */
+  box-shadow: 0 0 12px rgba(var(--accent), 0.15) !important;
+}
+
+/* Count chip */
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiChip-root {
+  background: rgba(var(--white), 0.12) !important;
+  border: 1px solid rgba(var(--white), 0.14) !important;
+  border-radius: var(--rounding-circle) !important;
+  color: rgba(var(--white), 0.95) !important;
+  height: auto !important;
+  font-size: 0.82rem;
+}
+body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiChip-label {
+  padding: 0.18em 0.7em !important;
+}
+
+
+/* ---------- 3. Play All / Shuffle pill ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  background: rgba(var(--accent), 0.22) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(var(--accent), 0.35) !important;
+  border-radius: var(--rounding-circle) !important;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.25),
+    0 0 10px rgba(var(--accent), 0.1) !important;
+  text-transform: none !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  height: 40px !important;
+  /* Locked size – never collapses */
+  min-width: 148px !important;
+  transition: background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* Base button styles */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained {
+  position: relative !important;
+  z-index: 2 !important;
+  height: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition:
+    background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease,
+    opacity 0.2s ease !important;
+}
+
+/* Play All button – the pill that slides */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton {
+  background-color: rgba(var(--accent), 0.45) !important;
+  border-radius: var(--rounding-circle) !important;
+  padding: 0 1.1em 0 1.3em !important;
+  flex: 1 1 auto !important;
+}
+
+/* Slightly tighter when hovering Play All itself */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton:hover {
+  padding: 0 0.9em 0 1.1em !important;
+}
+
+/* Shuffle button stays clear */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 1.1em !important;
+  flex: 0 0 auto !important;
+}
+
+/* White text & icons */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained * {
+  color: rgba(var(--white), 1) !important;
+  fill: rgba(var(--white), 1) !important;
+  opacity: 1 !important;
+}
+
+/* ========== SLIDE THE PILL + SWAP LABEL ========== */
+
+/* Move the Play All pill under Shuffle and hide its text */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton {
+  transform: translateX(40px) !important;
+  /* FIX: Dropped from 20px to 17px to make the colored background circle a cleaner ~90% size */
+  clip-path: circle(18px at calc(100% - 20px)) !important;
+  -webkit-clip-path: circle(18px at calc(100% - 20px)) !important;
+  color: transparent !important;
+}
+
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton * {
+  color: transparent !important;
+  fill: transparent !important;
+  opacity: 0 !important;
+}
+
+/* Show “Shuffle” text in the original Play All position */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover)::after {
+  content: "Shuffle" !important;
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: rgba(var(--white), 1) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  animation: fadeInLabel 0.25s ease forwards !important;
+}
+
+@keyframes fadeInLabel {
+  from { opacity: 0; transform: translateY(-50%) translateX(-6px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* Make Shuffle icon a clean circle – FIXED: Keeps sizes identical at all times to stop the icon shifting */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+}
+
+/* Outer pill stronger on hover */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:hover {
+  background: rgba(var(--accent), 0.28) !important;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(var(--accent), 0.2) !important;
+}
+
+/* Kill MUI ripples */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::before,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::after,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root * {
+  display: none !important;
+  content: none !important;
+}
+
+
+/* ---------- Background Right-side icon group (Filter / A-Z / View) ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
+  background: rgba(var(--white), 0.10) !important;
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: var(--rounding-circle) !important;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(var(--darkest), 0.18);
+}
+
+/* ---------- Filter / Next / Previous – soft glass circles ---------- */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  gap: 6px !important; /* Separates the icons cleanly */
+}
+
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root {
+  position: relative !important;
+  background: rgba(var(--white), 0.10) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Refined Hover State – Circular Glow */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:hover {
+  background: rgba(var(--accent), 0.35) !important;
+  color: rgb(var(--accent)) !important;
+  border-color: rgba(var(--accent), 0.4) !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(var(--accent), 0.2) !important;
+}
+
+/* 4. Snappy Active State – Tactile Click compression */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:active {
+  transform: scale(0.92) !important;
+  background: rgba(var(--accent), 0.5) !important;
+}
+
+/* Force the internal Material UI touch ripple effect to respect the new circular boundary */
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
 /* ============================================================
-   4. DESKTOP SPECIFIC
+   SPECTRAFIN – Force Circular Sizing on Selected/Hover Effects
    ============================================================ */
 
-/* ---------- Views ---------- */
+/* Force all underlying structural highlight layers to be perfect circular shapes */
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::before,
+body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::after,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root *,
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="TouchRipple"],
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVisible"] {
+  border-radius: 50% !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
 
-/* Detail page layout */
+/* Constrain any expanding wave effects safely within the strict circular border mask */
+body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
+  overflow: hidden !important;
+}
+
+
+/* ============================================================
+
+/* ------------------------------------------------------------
+   3.7  Search page
+   ------------------------------------------------------------ */
+.searchFields .searchFieldsInner {
+    background: linear-gradient(135deg, rgba(var(--white-off), 0.28), rgba(var(--white-off), 0.15));
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+    border: 1px solid rgba(var(--white), 0.10) !important;
+    border-radius: var(--rounding-circle) !important;
+    box-shadow: 0 8px 28px rgba(var(--darkest), 0.28) !important;
+    padding: 0.5em 1.5em !important; /* Increased horizontal padding for look */
+
+    /* Centering logic */
+    max-width: 46rem;
+    margin: 20px auto 0 auto !important; /* Uses auto margins to center horizontally */
+}
+
+
+/* ============================================================
+   4. DESKTOP SPECIFIC
+   ------------------------------------------------------------
+   Desktop-only layout, detail/media page, and desktop chrome.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   4.1  Item detail / media page
+   ------------------------------------------------------------ */
+
+/* Detail page layout – poster + content panels (desktop)
+   Hierarchy: Poster | Logo → Actions → Summary panel → Info panel */
 .layout-desktop .detailPageWrapperContainer {
-  margin-top: -89vh;
+  margin-top: -58vh;
 }
 .layout-desktop .detailPagePrimaryContainer,
 .layout-desktop .detailPageContent {
-  padding-left: 5%;
+  padding-left: max(env(safe-area-inset-left), calc(18vw + 5.5%));
+  padding-right: 4%;
 }
 .layout-desktop .detailPagePrimaryContent {
-  width: 45%;
+  width: min(48%, 620px);
+  max-width: 56ch;
 }
 .layout-desktop .detailPagePrimaryContainer {
-  display: inline-table;
+  display: block;
   z-index: 2;
-  left: 5%;
+  position: relative;
+  left: 0;
+  padding-top: 1.5vh;
 }
 .layout-desktop .detailPageSecondaryContainer {
-  margin: 0 0 0em 0 !important;
-  padding-bottom: 0em !important;
+  margin: 0 !important;
+  padding-bottom: 2em !important;
+  padding-left: max(env(safe-area-inset-left), calc(18vw + 5.5%)) !important;
 }
 .layout-desktop .itemDetailsGroup {
-  margin-top: 0;
-  padding-bottom: 0vh !important;
+  margin-top: 0.85em;
+  padding: 1em 1.15em 1.05em !important;
+  background: rgba(var(--darkest), 0.55);
+  border: 1px solid rgba(var(--white), 0.12);
+  border-radius: var(--rounding-large);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  width: fit-content;
+  max-width: 36em;
 }
+
+/* Full-bleed cinematic backdrop */
 .layout-desktop .itemBackdrop {
   background-attachment: scroll;
-  background-position: center;
+  background-position: center 22%;
   background-image: none !important;
   background-size: cover;
-  height: 100vh;
+  height: 86vh;
+  min-height: 460px;
   position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 .layout-desktop .backgroundContainer {
   background-size: cover !important;
@@ -1490,7 +1868,27 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
   bottom: 0;
   left: 0;
 }
-.layout-desktop .detailImageContainer .card,
+
+/* Poster back in the UI */
+.layout-desktop .detailImageContainer .card {
+  display: block !important;
+  position: absolute;
+  top: 12%;
+  left: 4.5%;
+  width: 17vw;
+  max-width: 260px;
+  min-width: 150px;
+  z-index: 3;
+  border-radius: var(--rounding-large) !important;
+  overflow: hidden;
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(var(--white), 0.08);
+}
+.layout-desktop .detailImageContainer .card .cardImageContainer,
+.layout-desktop .detailImageContainer .card .cardContent {
+  border-radius: var(--rounding-large) !important;
+}
 .layout-desktop .itemTags {
   display: none;
 }
@@ -1498,46 +1896,59 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
   display: none;
 }
 .layout-desktop .detailSectionContent {
-  padding: 0 0 0.25vw 0 !important;
+  padding: 0.85em 1.1em 1em !important;
+  margin-top: 0.35em;
+  background: rgba(var(--darkest), 0.52);
+  border: 1px solid rgba(var(--white), 0.12);
+  border-radius: var(--rounding-large);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  max-width: 36em;
 }
 
 /* ---------- Elements ---------- */
 
-/* Detail logo positioning */
+/* Detail logo – sits above content column (right of poster) */
 .layout-desktop .detailLogo {
-  left: 5%;
-  background-position: left;
+  left: max(env(safe-area-inset-left), calc(18vw + 5.5%));
+  right: auto;
+  top: 10vh;
+  background-position: left center;
+  background-size: contain;
+  height: 16vh;
+  max-height: 140px;
+  width: min(34vw, 440px);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
 }
 .detailLogo {
-  height: 26vh;
   position: absolute;
-  right: 25vw;
-  top: 10vh;
-  width: 25em;
+  z-index: 4;
 }
 
 /* Folder icon visibility */
-.layout-desktop .cardImageIcon .material-icons .folder {
+.layout-desktop .cardImageIcon .material-icons.folder {
   display: block !important;
 }
 
-/* Hide writers / studios groups */
+/* Keep writers / studios visible (info panel) */
 .detailsGroupItem.writersGroup,
 .detailsGroupItem.studiosGroup {
-  display: none;
+  display: flex;
 }
 
-/* Button text layout (Zombie style) */
-.layout-desktop a.overview-expand.emby-button {
-  margin: 0;
-  padding: 0;
-}
+/* Title weight */
 .layout-desktop .itemName,
 .layout-mobile .itemName {
-  font-weight: normal;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
+
+/* Labels via title; keep play icon, hide only decorative secondary icons */
 .layout-desktop .btnShuffle,
-.layout-desktop .listViewUserDataButtons,
+.layout-desktop .listViewUserDataButtons {
+  display: none;
+}
 .layout-desktop .material-icons.detailButton-icon.check,
 .layout-desktop .material-icons.detailButton-icon.favorite,
 .layout-desktop .material-icons.detailButton-icon.more_vert,
@@ -1555,58 +1966,173 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
   content: attr(title);
 }
 
-/* Title / logo link sizing */
+/* Tighter title block */
 .layout-desktop .itemName.parentNameLast {
-  height: 7em;
+  height: auto;
+  min-height: 2.2em;
+  margin-bottom: 0.35em !important;
 }
 .layout-desktop h1.parentName {
-  margin: 1em 0 0 !important;
-  padding-bottom: 3em;
-  height: 6em;
+  margin: 0.35em 0 0.15em !important;
+  padding-bottom: 0.25em;
+  height: auto;
 }
 .layout-desktop #itemDetailPage .parentName .button-link {
-  height: 7em;
-  width: 70%;
+  height: auto;
+  width: auto;
+  max-width: 90%;
 }
 .nameContainer .itemName.infoText.parentNameLast > bdi {
   position: relative;
-  top: 55%;
+  top: 0;
 }
 
-/* Prominent play button */
+/* Action row */
+.layout-desktop .detailPagePrimaryContainer .mainDetailButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  margin: 0.9em 0 0.85em;
+}
+
+/* ---- Primary Play / Resume: animated, consistent with SpectraFin tactile language ---- */
+@keyframes spectra-play-pulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 18px rgba(var(--accent), 0.22),
+      0 0 24px rgba(var(--accent), 0.12);
+  }
+  50% {
+    box-shadow:
+      0 6px 26px rgba(var(--accent), 0.38),
+      0 0 36px rgba(var(--accent), 0.22);
+  }
+}
+
 .layout-desktop .btnPlay {
-  background-color: rgb(var(--white));
+  background: rgba(var(--white), 0.92) !important;
   color: rgb(var(--darkest)) !important;
-  margin-right: 3vw !important;
-  border-radius: calc(var(--rounding) + 2px) !important;
+  margin-right: 0.25rem !important;
+  border-radius: calc(var(--rounding) + 4px) !important;
+  padding: 0.6em 1.35em 0.6em 1.15em !important;
+  font-weight: 700;
+  border: 1px solid rgba(var(--white), 0.35) !important;
+  box-shadow:
+    0 4px 18px rgba(var(--accent), 0.22),
+    0 0 24px rgba(var(--accent), 0.12);
+  animation: spectra-play-pulse 3.2s ease-in-out infinite;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    transform 0.18s cubic-bezier(0.34, 1.4, 0.64, 1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 .layout-desktop .btnPlay:hover {
-  background-color: rgba(var(--accent));
+  background: rgb(var(--accent)) !important;
   color: rgb(var(--darkest)) !important;
+  border-color: rgba(var(--accent), 0.9) !important;
+  transform: translateY(-2px) scale(1.04);
+  animation: none;
+  box-shadow:
+    0 8px 28px rgba(var(--accent), 0.4),
+    0 0 32px rgba(var(--accent), 0.25);
 }
-.layout-desktop .mainAnimatedPages .paging {
-  margin-right: 1em !important;
+.layout-desktop .btnPlay:active {
+  transform: translateY(0) scale(0.94) !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+  box-shadow:
+    0 2px 12px rgba(var(--accent), 0.28),
+    0 0 16px rgba(var(--accent), 0.14) !important;
 }
 .layout-desktop .detailPagePrimaryContainer .mainDetailButtons .btnPlay::after {
   content: attr(title);
-  margin: 1px 11px 0 2px;
-  color: rgba(var(--darkest));
+  margin: 0 0 0 0.4em;
+  color: inherit;
+  font-weight: 700;
 }
-.layout-desktop .detailPagePrimaryContainer .mainDetailButtons {
-  margin: 0;
+.layout-desktop .material-icons.detailButton-icon.play_arrow {
+  color: inherit;
+  display: inline-block !important;
+  font-size: 1.2em;
+  vertical-align: -0.12em;
+  transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.layout-desktop .btnPlay:hover .material-icons.detailButton-icon.play_arrow {
+  transform: scale(1.12);
+}
+
+/* Secondary actions – same language as homeLibraryButton (matte + accent glow) */
+.layout-desktop #itemDetailPage .btnPlayTrailer,
+.layout-desktop #itemDetailPage .btnPlaystate,
+.layout-desktop #itemDetailPage .btnUserRating,
+.layout-desktop #itemDetailPage .btnMoreCommands,
+.layout-desktop #itemDetailPage .btnReplay {
+  background: rgba(var(--white), 0.28) !important;
+  color: rgba(var(--white), 0.95) !important;
+  border: 1px solid rgba(var(--white), 0.14) !important;
+  border-radius: var(--rounding) !important;
+  padding: 0.52em 1.05em !important;
+  font-weight: 600;
+  box-shadow:
+    0 4px 14px rgba(var(--accent), 0.12),
+    0 0 18px rgba(var(--accent), 0.06);
+  transition: all 0.22s ease;
+}
+.layout-desktop #itemDetailPage .btnPlayTrailer:hover,
+.layout-desktop #itemDetailPage .btnPlaystate:hover,
+.layout-desktop #itemDetailPage .btnUserRating:hover,
+.layout-desktop #itemDetailPage .btnMoreCommands:hover,
+.layout-desktop #itemDetailPage .btnReplay:hover {
+  background: rgba(var(--accent), 0.42) !important;
+  border-color: rgba(var(--accent), 0.4) !important;
+  color: rgb(var(--white)) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(var(--accent), 0.28),
+    0 0 22px rgba(var(--accent), 0.14);
+}
+.layout-desktop #itemDetailPage .btnPlayTrailer:active,
+.layout-desktop #itemDetailPage .btnPlaystate:active,
+.layout-desktop #itemDetailPage .btnUserRating:active,
+.layout-desktop #itemDetailPage .btnMoreCommands:active,
+.layout-desktop #itemDetailPage .btnReplay:active {
+  transform: translateY(0) scale(0.94) !important;
+  transition: transform 0.1s ease !important;
+}
+
+.layout-desktop .mainAnimatedPages .paging {
+  margin-right: 1em !important;
 }
 .layout-desktop div:not(.sectionTitleContainer-cards) > .sectionTitle-cards {
   margin: 0;
   padding-bottom: 0.2em;
   padding-top: 1em;
 }
-.layout-desktop .material-icons.detailButton-icon.play_arrow {
-  color: rgba(var(--darkest));
-}
 .layout-desktop .listViewUserDataButtons {
   display: none;
 }
 
+/* Wide screens: keep poster proportional */
+@media (min-aspect-ratio: 2.1/1) {
+  .layout-desktop .detailImageContainer .card {
+    width: 14vw;
+    max-width: 230px;
+  }
+  .layout-desktop .detailPagePrimaryContainer,
+  .layout-desktop .detailPageContent,
+  .layout-desktop .detailPageSecondaryContainer {
+    padding-left: max(env(safe-area-inset-left), calc(14vw + 5%)) !important;
+  }
+  .layout-desktop .detailLogo {
+    left: max(env(safe-area-inset-left), calc(14vw + 5%));
+  }
+}
+
+/* ------------------------------------------------------------
+   4.2  Cast, scenes, header sizing, aesthetics
+   ------------------------------------------------------------ */
 /* Cast / scenes / similar card sizing */
 .layout-desktop #castContent .card.overflowPortraitCard,
 .layout-desktop #guestCastContent .card.overflowPortraitCard {
@@ -1667,23 +2193,49 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
 
 /* ---------- Aesthetics ---------- */
 .layout-desktop .detailRibbon {
-  background: rgba(0, 0, 0, 0);
+  background: transparent !important;
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
 }
-.itemBackdrop::after {
-  background: rgba(0, 0, 0, 0) !important;
+/* Subtle bottom fade only on detail backdrop so text stays readable */
+.layout-desktop .itemBackdrop::after {
+  background: linear-gradient(to bottom, transparent 45%, rgba(0, 0, 0, 0.5) 100%) !important;
 }
+/* Keep original global tint – do not change home / library */
 .backgroundContainer {
   background-color: rgba(var(--accent), 0.37) !important;
 }
 
 /* ---------- Miscellaneous ---------- */
-.layout-desktop .cardImageIcon .material-icons .folder {
+.layout-desktop .cardImageIcon .material-icons.folder {
   display: block !important;
+}
+
+
+/* ------------------------------------------------------------
+   4.3  Now-playing music bar (desktop)
+   ------------------------------------------------------------ */
+.layout-desktop .appfooter:has(.nowPlayingBar:not(.hide)) {
+  left: 1.25em !important;
+  right: 1.25em !important;
+  bottom: 1.1em !important;
+  width: auto !important;
+  background: rgba(var(--darkest), 0.52) !important;
+  backdrop-filter: blur(28px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  border: 1px solid rgba(var(--white), 0.12) !important;
+  border-radius: var(--rounding-large) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.42), 0 0 24px rgba(var(--accent), 0.10) !important;
+}
+.layout-desktop body:has(.nowPlayingBar:not(.hide)) .padded-bottom-page {
+  padding-bottom: 7.5em !important;
 }
 
 
 /* ============================================================
    5. MOBILE SPECIFIC
+   ------------------------------------------------------------
+   Mobile layout tweaks and breakpoints.
    ============================================================ */
 
 /* ---------- Views ---------- */
@@ -1773,6 +2325,8 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
 
 /* ============================================================
    6. TV SPECIFIC
+   ------------------------------------------------------------
+   TV focus, scale, and backdrop treatment.
    ============================================================ */
 
 /* ---------- Views ---------- */
@@ -1816,382 +2370,179 @@ body:has(.MuiAppBar-root) .MuiAppBar-root:has(.MuiToolbar-root:nth-child(2)) ~ *
 /* Additional TV Live-TV / next-up rules can be expanded here later */
 
 
-
-
+/* ============================================================
+   7. DEVELOPMENT
+   ============================================================ */
 
 
 
 /* ============================================================
-   JF12 Modern – Library toolbar + menu polish
-   (works with existing SpectraFin modern rules)
+   SPECTRAFIN – DETAIL PAGE LAYOUT TEST (Attempt 17 – JF12)
+   Fix: Seasons size = Cast size | Restore logo | Move poster down
    ============================================================ */
 
-/* ---------- 1. Strengthen existing menu glass ---------- */
-body:has(.MuiAppBar-root) .MuiMenu-paper,
-body:has(.MuiAppBar-root) .MuiPopover-paper {
-  background-color: rgba(var(--darkest), 0.78) !important;
-  backdrop-filter: blur(22px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
-  border: 1px solid rgba(var(--white), 0.10) !important;
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(var(--accent), 0.06) !important;
-  margin-top: 8px !important;                 /* slight downward nudge */
-}
-
-body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root {
-  margin: 2px 12px !important;
-  border-radius: var(--rounding-alt) !important;
-  padding: 0.5em 0.9em !important;
-}
-
-body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root.Mui-selected {
-  background-color: rgba(var(--accent), 0.38) !important;
-  color: rgba(var(--white), 0.98) !important;
-}
-
-body:has(.MuiAppBar-root) .MuiMenu-paper .MuiMenuItem-root.Mui-selected:hover {
-  background-color: rgba(var(--accent), 0.58) !important;
-  color: rgb(var(--darkest)) !important;
-}
-
-/* ---------- 2. Library page second toolbar – clean glass bar ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) {
-  background: rgba(var(--darkest), 0.35) !important;
-  backdrop-filter: blur(18px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
-  border: 1px solid rgba(var(--white), 0.08) !important;
-  border-radius: var(--rounding-circle) !important;
-  margin: 0.5em 1em 0.35em !important;
-  width: calc(100% - 2em) !important;
-  min-height: 48px !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  gap: 10px !important;
-  box-sizing: border-box !important;
-  box-shadow: 0 2px 14px rgba(var(--darkest), 0.2) !important;
-}
-
-/* Library selector (Movies / Shows etc.) – soft glass pill met vloeiende transitie */
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type,
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) [role="button"]:first-of-type {
-  background: rgba(var(--white), 0.12) !important;
-  border: 1px solid rgba(var(--white), 0.12) !important;
-  border-radius: var(--rounding-circle) !important;
-  color: rgba(var(--white), 0.95) !important;
-  padding: 0.4em 0.9em !important;
-  text-transform: none !important;
-  font-weight: 500 !important;
-  padding-left: -40px !important;
-  /* FIX: Zorgt voor een vloeiende overgang wanneer de muis de knop verlaat */
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiButton-root:first-of-type:hover {
-  background: rgba(var(--accent), 0.28) !important;
-  border-color: rgba(var(--accent), 0.25) !important;
-  /* FIX: Optionele subtiele glow die vloeiend mee animeert op de hover */
-  box-shadow: 0 0 12px rgba(var(--accent), 0.15) !important;
-}
-
-/* Count chip */
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiChip-root {
-  background: rgba(var(--white), 0.12) !important;
-  border: 1px solid rgba(var(--white), 0.14) !important;
-  border-radius: var(--rounding-circle) !important;
-  color: rgba(var(--white), 0.95) !important;
-  height: auto !important;
-  font-size: 0.82rem;
-}
-body:has(.MuiAppBar-root) .MuiAppBar-root > .MuiToolbar-root:nth-child(2) .MuiChip-label {
-  padding: 0.18em 0.7em !important;
-}
-
-
-
-
-
-
-
-
-
-/* ---------- 3. Play All / Shuffle pill ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained {
+/* ---------- 0. Page centering & kill old 4.1 conflicts ---------- */
+.layout-desktop #itemDetailPage .detailPageWrapperContainer {
+  margin-top: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 3.2rem !important;
+  padding-right: 3.2rem !important;
   position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  background: rgba(var(--accent), 0.22) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(var(--accent), 0.35) !important;
-  border-radius: var(--rounding-circle) !important;
-  box-shadow: 
-    0 4px 14px rgba(0, 0, 0, 0.25),
-    0 0 10px rgba(var(--accent), 0.1) !important;
-  text-transform: none !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-  height: 40px !important;
-  /* Locked size – never collapses */
-  min-width: 148px !important;
-  transition: background 0.25s ease, box-shadow 0.25s ease !important;
 }
 
-/* Base button styles */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained {
+.layout-desktop #itemDetailPage .detailPagePrimaryContainer,
+.layout-desktop #itemDetailPage .detailPageContent {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.layout-desktop #itemDetailPage .detailPageSecondaryContainer {
+  max-width: 1520px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 3.2rem !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* ---------- 1. Media Blocks ---------- */
+.layout-desktop #itemDetailPage .detailPagePrimaryContainer {
+  display: grid !important;
+  grid-template-columns: 360px minmax(0, 1fr) !important;
+  gap: 1.8rem 3.2rem !important;
+  align-items: start !important;
+  margin-bottom: 0 !important;
   position: relative !important;
-  z-index: 2 !important;
-  height: 100% !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  white-space: nowrap !important;
-  box-shadow: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  transition: 
-    background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.2s ease,
-    opacity 0.2s ease !important;
+  padding-top: 1.5rem !important;
 }
 
-/* Play All button – the pill that slides */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton {
-  background-color: rgba(var(--accent), 0.45) !important;
-  border-radius: var(--rounding-circle) !important;
-  padding: 0 1.1em 0 1.3em !important;
-  flex: 1 1 auto !important;
+/* ---------- Poster – position, size & styling ---------- */
+.layout-desktop #itemDetailPage .detailImageContainer.hide-mobile {
+  grid-column: 1 !important;              /* Places poster in left column (column 1) */
+  
+  justify-self: center !important;        /* Horizontal alignment in column: start | center | end */
+  margin: 4rem !important;                   /* Outer spacing (Top Right Bottom Left). Try -3rem top to overlap backdrop */
+  position: relative !important;          /* Anchor for offsets and z-index */
+  top: -1.5rem !important;                      /* Fine vertical nudge (e.g., 15px or -20px) */
+  left: -9rem !important;                     /* Fine horizontal nudge (e.g., 10px or -10px) */
+  z-index: 5 !important;                  /* Keeps poster above backdrop layers */
 }
 
-/* Slightly tighter when hovering Play All itself */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-firstButton:hover {
-  padding: 0 0.9em 0 1.1em !important;
+/* Force the actual poster card size, shape, border & shadow */
+.layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .card,
+.layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .cardBox,
+.layout-desktop #itemDetailPage .detailImageContainer.hide-mobile .cardScalable {
+  width: 380px !important;                /* Poster width (try 250px to 320px) */
+  max-width: 340px !important;            /* Prevents stretching wider */
+  height: auto !important;                /* Lets aspect-ratio below set height cleanly without stretching */
+  max-height: none !important;            /* Removes hardcoded height limits */
+  aspect-ratio: 2 / 3 !important;         /* Standard poster proportion (280x420). Use 2 / 3.2 for taller */
 }
 
-/* Shuffle button stays clear */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
-  background: transparent !important;
-  background-color: transparent !important;
-  padding: 0 1.1em !important;
-  flex: 0 0 auto !important;
-}
-
-/* White text & icons */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained * {
-  color: rgba(var(--white), 1) !important;
-  fill: rgba(var(--white), 1) !important;
-  opacity: 1 !important;
-}
-
-/* ========== SLIDE THE PILL + SWAP LABEL ========== */
-
-/* Move the Play All pill under Shuffle and hide its text */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton {
-  transform: translateX(40px) !important; 
-  /* FIX: Dropped from 20px to 17px to make the colored background circle a cleaner ~90% size */
-  clip-path: circle(18px at calc(100% - 20px)) !important; 
-  -webkit-clip-path: circle(18px at calc(100% - 20px)) !important;
-  color: transparent !important;
-}
-
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover) .MuiButtonGroup-firstButton * {
-  color: transparent !important;
-  fill: transparent !important;
-  opacity: 0 !important;
-}
-
-/* Show “Shuffle” text in the original Play All position */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:has(.MuiButtonGroup-lastButton:hover)::after {
-  content: "Shuffle" !important;
-  position: absolute !important;
-  left: 18px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  color: rgba(var(--white), 1) !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  z-index: 3 !important;
-  pointer-events: none !important;
-  animation: fadeInLabel 0.25s ease forwards !important;
-}
-
-@keyframes fadeInLabel {
-  from { opacity: 0; transform: translateY(-50%) translateX(-6px); }
-  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
-}
-
-/* Make Shuffle icon a clean circle – FIXED: Keeps sizes identical at all times to stop the icon shifting */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButtonGroup-lastButton {
-  width: 40px !important;
-  min-width: 40px !important;
-  height: 40px !important;
+/* ---------- 2. Right side ---------- */
+.layout-desktop #itemDetailPage .detailRibbon {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
   padding: 0 !important;
-  border-radius: 50% !important;
-}
-
-/* Outer pill stronger on hover */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained:hover {
-  background: rgba(var(--accent), 0.28) !important;
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.35),
-    0 0 25px rgba(var(--accent), 0.2) !important;
-}
-
-/* Kill MUI ripples */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::before,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiButton-contained::after,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-contained .MuiTouchRipple-root * {
-  display: none !important;
-  content: none !important;
-}
-
-
-
-
-
-
-
-
-
-/* ---------- Background Right-side icon group (Filter / A-Z / View) ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
-  background: rgba(var(--white), 0.10) !important;
-  backdrop-filter: blur(14px) saturate(130%);
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
-  border: 1px solid rgba(var(--white), 0.12) !important;
-  border-radius: var(--rounding-circle) !important;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(var(--darkest), 0.18);
-}
-
-/* ---------- Filter / Next / Previous – soft glass circles ---------- */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text {
+  margin: 0 0 1rem 0 !important;
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-  gap: 6px !important; /* Separates the icons cleanly */
 }
 
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root {
+.layout-desktop #itemDetailPage .detailPagePrimaryContent {
+  display: contents !important;
+}
+
+.layout-desktop #itemDetailPage .detailSection {
+  display: contents !important;
+}
+
+/* Summary */
+.layout-desktop #itemDetailPage .detailSectionContent {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  margin: 0 0 1.2rem 0 !important;
+  min-width: 38em !important;
+}
+
+/* Studio / Genres */
+.layout-desktop #itemDetailPage .itemDetailsGroup {
+  grid-column: 2 !important;
+  grid-row: 3 !important;
+  margin: 0 !important;
+  min-width: 38em !important;
+}
+
+/* ---------- 3. SEASONS – exact size match to Cast & Crew ---------- */
+.layout-desktop #itemDetailPage #listChildrenCollapsible {
+  grid-column: 1 / -1 !important;
+  grid-row: 4 !important;
+  width: 100% !important;
+  margin: 1rem 0 1rem 0 !important;
+  padding: 0 0 0 3.2rem !important;   /* ← moves it right to match Cast */
+}
+
+
+
+/* ---------- 4. Buttons ---------- */
+
+
+/* ---------- 5. Divider (kept) ---------- */
+.layout-desktop #itemDetailPage #castCollapsible {
   position: relative !important;
-  background: rgba(var(--white), 0.10) !important;
-  backdrop-filter: blur(14px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
-  border: 1px solid rgba(var(--white), 0.12) !important;
-  border-radius: 50% !important; 
-  width: 40px !important;
-  height: 40px !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin-top: 1.2rem !important;
+  padding-top: 1.8rem !important;
 }
 
-/* Refined Hover State – Circular Glow */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:hover {
-  background: rgba(var(--accent), 0.35) !important;
-  color: rgb(var(--accent)) !important;
-  border-color: rgba(var(--accent), 0.4) !important;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(var(--accent), 0.2) !important;
-}
-
-/* 4. Snappy Active State – Tactile Click compression */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root:active {
-  transform: scale(0.92) !important;
-  background: rgba(var(--accent), 0.5) !important;
-}
-
-/* Force the internal Material UI touch ripple effect to respect the new circular boundary */
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
-  border-radius: 50% !important;
-  overflow: hidden !important;
-}
-
-/* ============================================================
-   SPECTRAFIN – Force Circular Sizing on Selected/Hover Effects
-   ============================================================ */
-
-/* Force all underlying structural highlight layers to be perfect circular shapes */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::before,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::after,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root *,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="TouchRipple"],
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVisible"] {
-  border-radius: 50% !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  transform: none !important;
-}
-
-/* Constrain any expanding wave effects safely within the strict circular border mask */
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
-  overflow: hidden !important;
+.layout-desktop #itemDetailPage #castCollapsible::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0.3rem !important;
+  left: 0 !important;
+  right: 2.8rem !important;
+  height: 2px !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--accent), 0.22) 7%,
+    rgba(var(--accent), 0.95) 50%,
+    rgba(var(--accent), 0.22) 93%,
+    transparent 100%
+  ) !important;
+  box-shadow:
+    0 0 14px 3px rgba(var(--accent), 0.55),
+    0 0 32px 6px rgba(var(--accent), 0.28),
+    0 0 55px 10px rgba(var(--accent), 0.12) !important;
+  border-radius: 4px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
 }
 
 
-/* ============================================================
-   SPECTRAFIN – Force Circular Sizing on Selected/Hover Effects
-   ============================================================ */
-
-/* Force all underlying structural highlight layers to be perfect circular shapes */
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::before,
-body:has(.MuiAppBar-root) .MuiAppBar-root .MuiButtonGroup-text .MuiButton-root::after,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root *,
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="TouchRipple"],
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root [class*="focusVisible"] {
-  border-radius: 50% !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  transform: none !important;
+/* ---------- 6. Restore the series title logo ---------- */
+.layout-desktop #itemDetailPage .detailLogo {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  margin: 0 auto 2rem auto !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55)) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+}
+/* ---------- 7. Misc ---------- */
+.layout-desktop #itemDetailPage .itemMiscInfo-primary {
+  margin-bottom: 0.9rem !important;
+  gap: 0.85rem !important;
 }
 
-/* Constrain any expanding wave effects safely within the strict circular border mask */
-body:has(.MuiAppBar-root) .MuiButtonGroup-text .MuiButton-root .MuiTouchRipple-root {
-  overflow: hidden !important;
+/* Reduce the empty hero backdrop spacer at the top of #itemDetailPage */
+.layout-desktop #itemDetailPage .itemBackdrop {
+  height: 18vh !important;      /* Adjust between 12vh and 25vh to taste */
+  min-height: 40px !important;
+  max-height: 0px !important;
 }
-
-
-/* Music bar — only when actually visible */
-.layout-desktop .appfooter:has(.nowPlayingBar:not(.hide)) {
-  left: 1.25em !important;
-  right: 1.25em !important;
-  bottom: 1.1em !important;
-  width: auto !important;
-  background: rgba(var(--darkest), 0.52) !important;
-  backdrop-filter: blur(28px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
-  border: 1px solid rgba(var(--white), 0.12) !important;
-  border-radius: var(--rounding-large) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.42), 0 0 24px rgba(var(--accent), 0.10) !important;
-}
-.layout-desktop body:has(.nowPlayingBar:not(.hide)) .padded-bottom-page {
-  padding-bottom: 7.5em !important;
-}
-
-
-/* 5. Search page field */
-.searchFields .searchFieldsInner {
-    background: linear-gradient(135deg, rgba(var(--white-off), 0.28), rgba(var(--white-off), 0.15));
-    backdrop-filter: blur(22px) saturate(150%);
-    -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
-    border: 1px solid rgba(var(--white), 0.10) !important;
-    border-radius: var(--rounding-circle) !important;
-    box-shadow: 0 8px 28px rgba(var(--darkest), 0.28) !important;
-    padding: 0.5em 1.5em !important; /* Increased horizontal padding for look */
-    
-    /* Centering logic */
-    max-width: 46rem;
-    margin: 20px auto 0 auto !important; /* Uses auto margins to center horizontally */
-}
-
 
